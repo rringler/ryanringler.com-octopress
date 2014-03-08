@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Ryan Ringler.com]]></title>
+  <link href="http://ryanringler.com/atom.xml" rel="self"/>
+  <link href="http://ryanringler.com/"/>
+  <updated>2014-03-08T12:29:46-08:00</updated>
+  <id>http://ryanringler.com/</id>
+  <author>
+    <name><![CDATA[Ryan Ringler]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World.rb]]></title>
+    <link href="http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb/"/>
+    <updated>2014-03-08T11:49:34-08:00</updated>
+    <id>http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb</id>
+    <content type="html"><![CDATA[<p>
+  First post.
+</p>
+]]></content>
+  </entry>
+  
+</feed>

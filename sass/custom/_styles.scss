@@ -1,0 +1,73 @@
+/* nice sticky footer, from http://getbootstrap.com/examples/sticky-footer/ */
+html, body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+footer[role=contentinfo] {
+  padding-top: 40px;
+  height: 60px;
+}
+
+
+
+/* ------------------------------------------ */
+
+
+nav {
+  ul.dropdown-menu {
+    a {
+      color: rgb(45,117,166);
+      i { padding: 0 10px 0 0; }
+    }
+  }
+}
+
+section {
+  padding-top: 20px;
+
+  .section-header {
+    .circle {
+      background: rgba(45,117,166,1.0);
+      text-align: center;
+      border-radius: 100%;
+      margin: 20px 0 0 15px;
+      width: 56px;
+      height: 56px;
+      box-shadow: 1px 1px 2px 0px #E0E0E0;
+    }
+    img { margin: 10px 0 0 -5px; }
+  }
+
+  &#education {
+    .degree, .key-coursework { padding-left: 20px; }
+  }
+
+  &#experience {
+    .position, .position-highlights { padding-left: 20px; }
+  }
+
+  &#skills {
+    .col-xs-3 { padding-right: 30px; }
+    .col-xs-9 div.row { margin-left: 0px; }
+    span#ruby {
+      color: #981A21;
+
+      img {
+        position: relative;
+        top: -2px;
+      }
+    }
+  }
+}
