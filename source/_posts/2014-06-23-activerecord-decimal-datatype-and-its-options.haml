@@ -1,0 +1,43 @@
+---
+layout: post
+title: "ActiveRecord: Decimal Datatype and its options"
+date: 2014-06-23 18:01:58 -0700
+comments: true
+categories: [Ruby on Rails, ActiveRecord, SQL]
+---
+
+%p
+  Ruby on Rails's ActiveRecord supports the normal decimal SQL data type, with
+  support for both precision and scale options.  Unfortunately these two options
+  are simple enough to understand, but similar enough to confuse.
+
+%p
+  In short, precision is the total number of digits in the decimal number,
+  while scale is the number of digits to the right of the decimal place.  Thus,
+  the following migration:
+
+{% codeblock lang:ruby %}
+class CreateNumbersTable < ActiveRecord::Migration
+  def up
+    create_table :numbers do |t|
+      t.decimal :decimal_number, precision: 6, scale: 2
+    end
+  end
+
+  def down
+  end
+end
+{% endcodeblock %}
+
+%p
+  creates a numbers table with a
+  %strong
+    decimal_number
+  column that will accept data in a X,XXX.XX format.  Try to insert a number
+  with more digits (say, 10,000.00) and it will give you an out-of-range error
+  (as I wrestled with last night.)
+
+%p
+  H/T to
+  %a{href: "https://www.jtanium.com/2009/10/06/rails-migrations-decimal-precision-and-scale/"} Jtanium's post
+  for making this clear for me.

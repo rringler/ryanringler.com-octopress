@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello World.rb - Ryan Ringler.com</title>
+  <title>ActiveRecord: Decimal Datatype and its options - Ryan Ringler.com</title>
   <meta name="author" content="Ryan Ringler">
 
   
@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb">
+  <link rel="canonical" href="http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options">
   <link href="/favicon.ico" type="image/x-icon" rel="icon">
   <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
   <link href="/atom.xml" rel="alternate" title="Ryan Ringler.com" type="application/atom+xml">
@@ -137,13 +137,13 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-03-08T11:49:34-08:00" pubdate data-updated="true">Mar 8<span>th</span>, 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-06-23T18:01:58-07:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
         
       </p>
     
     
     <h1 class="entry-title">
-        Hello World.rb
+        ActiveRecord: Decimal Datatype and Its Options
         
     </h1>
     
@@ -151,7 +151,49 @@
 
 
 <div class="entry-content clearfix"><p>
-  First post.
+  Ruby on Rails&#8217;s ActiveRecord supports the normal decimal SQL data type, with
+  support for both precision and scale options.  Unfortunately these two options
+  are simple enough to understand, but similar enough to confuse.
+</p>
+<p>
+  In short, precision is the total number of digits in the decimal number,
+  while scale is the number of digits to the right of the decimal place.  Thus,
+  the following migration:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateNumbersTable</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">up</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:numbers</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">decimal</span> <span class="ss">:decimal_number</span><span class="p">,</span> <span class="ss">precision</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="ss">scale</span><span class="p">:</span> <span class="mi">2</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">down</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  creates a numbers table with a
+  <strong>
+    decimal_number
+  </strong>
+  column that will accept data in a X,XXX.XX format.  Try to insert a number
+  with more digits (say, 10,000.00) and it will give you an out-of-range error
+  (as I wrestled with last night.)
+</p>
+<p>
+  H/T to
+  <a href='https://www.jtanium.com/2009/10/06/rails-migrations-decimal-precision-and-scale/'>Jtanium&#8217;s post</a>
+  for making this clear for me.
 </p>
 </div>
 
@@ -176,15 +218,22 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-03-08T11:49:34-08:00" pubdate data-updated="true">Mar 8<span>th</span>, 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-06-23T18:01:58-07:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
           
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/activerecord/'>ActiveRecord</a>, <a class='category' href='/blog/categories/ruby-on-rails/'>Ruby on Rails</a>, <a class='category' href='/blog/categories/sql/'>SQL</a>
+  
+</span>
 
 
         </p>
         
           <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb/" data-via="" data-counturl="http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/" data-via="" data-counturl="http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/" >Tweet</a>
   
   
   
@@ -194,8 +243,8 @@
         
           <ul class="meta text-muted pager">
             
+            <li class="previous"><a href="/blog/2014/03/08/hello-world-dot-rb/" title="Previous Post: Hello World.rb">&laquo; Hello World.rb</a></li>
             
-            <li class="next"><a href="/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/" title="Next Post: ActiveRecord: Decimal Datatype and its options">ActiveRecord: Decimal Datatype and its options &raquo;</a></li>
             
           </ul>
         

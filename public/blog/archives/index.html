@@ -29,6 +29,18 @@
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21693656-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -129,6 +141,40 @@
     
     <article class="page-header">
       
+<h1><a href="/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/">ActiveRecord: Decimal Datatype and its options</a></h1>
+<p class="meta text-muted">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-06-23T18:01:58-07:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
+  
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/activerecord/'>ActiveRecord</a>, <a class='category' href='/blog/categories/ruby-on-rails/'>Ruby on Rails</a>, <a class='category' href='/blog/categories/sql/'>SQL</a>
+  
+</span>
+
+
+</p>
+
+    </article>
+  
+    
+    
+    <article class="page-header">
+      
 <h1><a href="/blog/2014/03/08/hello-world-dot-rb/">Hello World.rb</a></h1>
 <p class="meta text-muted">
   
@@ -163,56 +209,7 @@
   
     <aside class="sidebar col-md-3">
       
-        <section class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Recent Posts</h3>
-  </div>
-  
-  <div id="recent_posts" class="list-group">
-    
-    <a class="list-group-item " href="/blog/2014/03/08/hello-world-dot-rb/">Hello World.rb</a>
-    
-  </div>
-</section>
-
-<section class="panel panel-default clearfix">
-  <div class="panel-heading">
-      <h3 class="panel-title">GitHub Repos</h3>
-  </div>
-  <div class="list-group" id="gh_repos">
-    <p class="loading">Status updating...</p>
-  </div>
-  
-    <div class="gh-profile-link pull-right text-muted">
-      <a href="https://github.com/rringler">@rringler</a> on GitHub
-    </div>
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'rringler',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-
-
-
+        
       
     </aside>
   

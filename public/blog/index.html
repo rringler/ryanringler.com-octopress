@@ -29,6 +29,18 @@
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21693656-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -129,6 +141,87 @@
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-06-23T18:01:58-07:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
+        
+      </p>
+    
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/">ActiveRecord: Decimal Datatype and Its Options</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content clearfix"><p>
+  Ruby on Rails&#8217;s ActiveRecord supports the normal decimal SQL data type, with
+  support for both precision and scale options.  Unfortunately these two options
+  are simple enough to understand, but similar enough to confuse.
+</p>
+<p>
+  In short, precision is the total number of digits in the decimal number,
+  while scale is the number of digits to the right of the decimal place.  Thus,
+  the following migration:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateNumbersTable</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">up</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:numbers</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">decimal</span> <span class="ss">:decimal_number</span><span class="p">,</span> <span class="ss">precision</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="ss">scale</span><span class="p">:</span> <span class="mi">2</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">down</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  creates a numbers table with a
+  <strong>
+    decimal_number
+  </strong>
+  column that will accept data in a X,XXX.XX format.  Try to insert a number
+  with more digits (say, 10,000.00) and it will give you an out-of-range error
+  (as I wrestled with last night.)
+</p>
+<p>
+  H/T to
+  <a href='https://www.jtanium.com/2009/10/06/rails-migrations-decimal-precision-and-scale/'>Jtanium&#8217;s post</a>
+  for making this clear for me.
+</p>
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-03-08T11:49:34-08:00" pubdate data-updated="true">Mar 8<span>th</span>, 2014</time>
         
       </p>
@@ -172,6 +265,8 @@
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/">ActiveRecord: Decimal Datatype and Its Options</a>
+    
     <a class="list-group-item " href="/blog/2014/03/08/hello-world-dot-rb/">Hello World.rb</a>
     
   </div>
@@ -201,7 +296,7 @@
 
         github.showRepos({
             user: 'rringler',
-            count: 0,
+            count: 5,
             skip_forks: true,
             target: '#gh_repos'
         });
@@ -209,10 +304,6 @@
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
-
-
-
-
 
 
       

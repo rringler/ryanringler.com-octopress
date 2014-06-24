@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SQL | Ryan Ringler.com]]></title>
+  <link href="http://ryanringler.com/blog/categories/sql/atom.xml" rel="self"/>
+  <link href="http://ryanringler.com/"/>
+  <updated>2014-06-23T19:13:44-07:00</updated>
+  <id>http://ryanringler.com/</id>
+  <author>
+    <name><![CDATA[Ryan Ringler]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ActiveRecord: Decimal Datatype and its options]]></title>
+    <link href="http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/"/>
+    <updated>2014-06-23T18:01:58-07:00</updated>
+    <id>http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options</id>
+    <content type="html"><![CDATA[<p>%p
+  Ruby on Rails&rsquo;s ActiveRecord supports the normal decimal SQL data type, with
+  support for both precision and scale options.  Unfortunately these two options
+  are simple enough to understand, but similar enough to confuse.</p>
+
+<p>%p
+  In short, precision is the total number of digits in the decimal number,
+  while scale is the number of digits to the right of the decimal place.  Thus,
+  the following migration:</p>
+
+<p>{% codeblock lang:ruby %}
+class CreateNumbersTable &lt; ActiveRecord::Migration
+  def up</p>
+
+<pre><code>create_table :numbers do |t|
+  t.decimal :decimal_number, precision: 6, scale: 2
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>  def down
+  end
+end
+{% endcodeblock %}</p>
+
+<p>%p
+  creates a numbers table with a
+  %strong</p>
+
+<pre><code>decimal_number
+</code></pre>
+
+<p>  column that will accept data in a X,XXX.XX format.  Try to insert a number
+  with more digits (say, 10,000.00) and it will give you an out-of-range error
+  (as I wrestled with last night.)</p>
+
+<p>%p
+  H/T to
+  %a{href: &ldquo;<a href="https://www.jtanium.com/2009/10/06/rails-migrations-decimal-precision-and-scale/">https://www.jtanium.com/2009/10/06/rails-migrations-decimal-precision-and-scale/</a>&rdquo;} Jtanium&rsquo;s post
+  for making this clear for me.</p>
+]]></content>
+  </entry>
+  
+</feed>
