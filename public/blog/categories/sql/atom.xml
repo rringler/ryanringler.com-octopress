@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SQL | Ryan Ringler.com]]></title>
   <link href="http://ryanringler.com/blog/categories/sql/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2014-06-23T19:13:44-07:00</updated>
+  <updated>2014-06-23T20:28:11-07:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -28,21 +28,33 @@
   while scale is the number of digits to the right of the decimal place.  Thus,
   the following migration:</p>
 
-<p>{% codeblock lang:ruby %}
-class CreateNumbersTable &lt; ActiveRecord::Migration
-  def up</p>
-
-<pre><code>create_table :numbers do |t|
-  t.decimal :decimal_number, precision: 6, scale: 2
-end
-</code></pre>
-
-<p>  end</p>
-
-<p>  def down
-  end
-end
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateNumbersTable</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">up</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;create_table :numbers do |t|</span>
+</span><span class='line'><span class="sr">  t.decimal :decimal_number, precision: 6, scale: 2</span>
+</span><span class='line'><span class="sr">end</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;  end&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">def</span> <span class="nf">down</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>%p
   creates a numbers table with a
