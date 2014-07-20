@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby on Rails | Ryan Ringler.com]]></title>
   <link href="http://ryanringler.com/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2014-06-23T20:28:11-07:00</updated>
+  <updated>2014-07-20T15:01:35-07:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Generating a New Rails Secret Key]]></title>
+    <link href="http://ryanringler.com/blog/2014/07/20/generating-rails-secret-keys/"/>
+    <updated>2014-07-20T14:34:02-07:00</updated>
+    <id>http://ryanringler.com/blog/2014/07/20/generating-rails-secret-keys</id>
+    <content type="html"><![CDATA[<p>%p
+  Ruby on Rails takes care of most of our site security for us.  About the only
+  thing we have to do is be careful with our secret keys.  This means keeping
+  them out of public repos.  If you realize you&rsquo;ve revealed your secret key,
+  Rails still has your back.  There&rsquo;s a very simple rake task to generate a
+  new secret key:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rake secret
+</span><span class='line'>d781e04897092465&amp;hellip;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>%p
+  and you&rsquo;ll get a new, secure 64-character random key.  Try not to check this
+  one into source control.</p>
+
+<p>%p
+  H/T to
+  %a{href: &ldquo;<a href="http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/">http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/</a>&rdquo;} James Badger&rsquo;s
+  post for spelling this out.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ActiveRecord: Decimal Datatype and its options]]></title>

@@ -140,6 +140,63 @@
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-07-20T14:34:02-07:00" pubdate data-updated="true">Jul 20<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/20/generating-rails-secret-keys/">Generating a New Rails Secret Key</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content clearfix"><p>
+  Ruby on Rails takes care of most of our site security for us.  About the only
+  thing we have to do is be careful with our secret keys.  This means keeping
+  them out of public repos.  If you realize you&#8217;ve revealed your secret key,
+  Rails still has your back.  There&#8217;s a very simple rake task to generate a
+  new secret key:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rake secret
+</span><span class='line'>d781e04897092465...
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  and you&#8217;ll get a new, secure 64-character random key.  Try not to check this
+  one into source control.
+</p>
+<p>
+  H/T to
+  <a href='http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/'>James Badger&#8217;s</a>
+  post for spelling this out.
+</p>
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-06-23T18:01:58-07:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
         
       </p>
@@ -263,6 +320,8 @@
   </div>
   
   <div id="recent_posts" class="list-group">
+    
+    <a class="list-group-item " href="/blog/2014/07/20/generating-rails-secret-keys/">Generating a New Rails Secret Key</a>
     
     <a class="list-group-item " href="/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/">ActiveRecord: Decimal Datatype and Its Options</a>
     
