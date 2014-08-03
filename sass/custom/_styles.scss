@@ -1,5 +1,6 @@
 /* nice sticky footer, from http://getbootstrap.com/examples/sticky-footer/ */
 html, body {
+  padding-top: 30px;
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
@@ -20,10 +21,7 @@ footer[role=contentinfo] {
   height: 60px;
 }
 
-
-
 /* ------------------------------------------ */
-
 
 nav {
   ul.dropdown-menu {
@@ -32,6 +30,10 @@ nav {
       i { padding: 0 10px 0 0; }
     }
   }
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px 1px #ccc;
 }
 
 section {
@@ -47,18 +49,32 @@ section {
       height: 56px;
       box-shadow: 1px 1px 2px 0px #E0E0E0;
     }
-    img { margin: 10px 0 0 -5px; }
+
+    i { color: rgba(255,255,255,0.65); }
+  }
+
+  &#summary {
+    i { margin: 14px 0 0 0px; }
+  }
+
+  &#projects {
+    h3 { text-shadow: none; }
+    i { margin: 14px 0 0 -2px; }
+    small.tags { padding-left: 14px;}
   }
 
   &#education {
+    i { margin: 16px 0 0 -5px; }
     .degree, .key-coursework { padding-left: 20px; }
   }
 
   &#experience {
+    i { margin: 16px 0 0 -1px; }
     .position, .position-highlights { padding-left: 20px; }
   }
 
   &#skills {
+    i { margin: 14px 0 0 -2px; }
     .col-xs-3 { padding-right: 30px; }
     .col-xs-9 div.row { margin-left: 0px; }
     span#ruby {

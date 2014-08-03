@@ -24,7 +24,7 @@
   <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/assets/bootstrap/dist/css/bootstrap-cerulean.min.css" rel="stylesheet" type="text/css">
 <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
@@ -46,7 +46,7 @@
   <body   >
     <div id="wrap">
       <header role="banner">
-        <nav class="navbar navbar-inverse" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -67,17 +67,17 @@
           <ul class="dropdown-menu">
             <li>
               <a href="mailto:jobs@ryanringler.com">
-                <i class="fa fa-envelope-o fa-lg"></i>email: jobs@ryanringler.com
+                <i class="fa fa-envelope-o"></i>email: jobs@ryanringler.com
               </a>
             </li>
             <li>
               <a href="https://github.com/rringler">
-                <i class="fa fa-github fa-lg"></i> github: rringler
+                <i class="fa fa-github"></i> github: rringler
               </a>
             </li>
             <li>
               <a href="http://www.linkedin.com/in/rringler">
-                <i class="fa fa-linkedin fa-lg"></i> linked in: rringler
+                <i class="fa fa-linkedin"></i> linked in: rringler
               </a>
             </li>
           </ul>
@@ -97,8 +97,8 @@
         <div id="content">
           <section id="summary">
   <div class="row section-header">
-    <div class="col-xs-1 circle text-center">
-      <img src='images/person.png' width='36' height='36' />
+    <div class="col-xs-1 circle">
+      <i class="fa fa-user fa-2x"></i>
     </div>
     <div class="col-xs-5">
       <h2>Summary</h2>
@@ -114,7 +114,7 @@
         Interested in furthering my experience in back-end/full-stack web
         application development.  Currently sharpening my skills in Ruby, Ruby
         on Rails, RSpec, HTML, CSS, and JavaScript through
-        <a href="https://github.com/rringler">personal projects</a>,
+        <a href="#projects">personal projects</a>,
         <a href="#online-learning">online learning</a>, and
         <a href="#technical-reading">technical reading</a>.
       </p>
@@ -130,10 +130,246 @@
 </section>
 
 
+<section id="skills">
+  <div class="row section-header">
+    <div class="col-xs-2 circle">
+      <i class="fa fa-code fa-2x"></i>
+    </div>
+    <div class="col-xs-5">
+      <h2>Skills Inventory</h2>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row skills">
+    <div class="col-xs-3 text-right">
+      <p>Programming Skills</p>
+    </div>
+    <div class="col-xs-9">
+      <div class="row">
+        <p>
+          <em>Comfortable:</em>
+          <span  id='ruby'>
+            <img src='images/ruby.png' width='15' height='15' /> Ruby
+          </span>, Ruby on Rails, RSpec, HTML, Haml, ERB, CSS, Sass, JavaScript,
+          jQuery, Git, Github, Heroku
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <em>Familiar:</em> CoffeeScript, SQL, Excel VBA
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <em>Aware:</em> Test::Unit, Cucumber
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row skills">
+    <div class="col-xs-3 text-right">
+      <p>Management Skills</p>
+    </div>
+    <div class="col-xs-9">
+      <p>
+        EVMS Level II (Expert), IMP/IMS Development &amp; Maintenance,
+        Microsoft Office Suite (including Project), IBM Rational DOORS,
+        Statement of Work Creation, Basis of Estimate Creation, Raytheon
+        Six Sigma (R6σ) Process Improvement
+      </p>
+    </div>
+  </div>
+
+  <div id="online-learning" class="row skills">
+    <div class="col-xs-3 text-right">
+      <p>Online Learning</p>
+    </div>
+    <div class="col-xs-9">
+      <div class="row">
+        <p>
+          <a href="http://www.codeschool.com/users/rringler">CodeSchool:</a>
+          Full Ruby Path (all courses), Full JavaScript Path (all courses),
+          Full HTML/CSS Path (all courses), Try Git, Git Real, Git Real 2,
+          Discover DevTools
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <a href="http://teamtreehouse.com/">Treehouse:</a>
+          Build a Simple Ruby on Rails Application, Ruby Foundations,
+          JavaScript Foundations, HTML Overview, Build a Simple Website Overview
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <a href="http://www.codecademy.com/users/rringler">Codecademy:</a>
+          Full Ruby Track (all courses)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="technical-reading" class="row skills">
+    <div class="col-xs-3 text-right">
+      <p class="category">
+        <a href="http://www.goodreads.com/user/show/7479161-ryan-ringler">
+          Recent Readings
+        </a>
+      </p>
+    </div>
+    <div class="col-xs-9">
+      <p>
+        <a href="http://www.amazon.com/gp/product/0321721330/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321721330&amp;linkCode=as2&amp;tag=wwwryanringle-20">
+          Practical Object-Oriented Design in Ruby: An Agile Primer</a>,
+        <a href="http://www.amazon.com/gp/product/0321490452/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321490452&amp;linkCode=as2&amp;tag=wwwryanringle-20">
+          Design Patterns in Ruby</a>,
+        <a href="https://leanpub.com/everydayrailsrspec">
+          Everyday Rails Testing with RSpec</a>,
+        <a href="http://www.amazon.com/gp/product/0321832051/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321832051&amp;linkCode=as2&amp;tag=wwwryanringle-20">
+          Ruby on Rails 3 Tutorial: Learn Rails by Example</a>,
+        <a href="http://www.amazon.com/gp/product/1933988657/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1933988657&amp;linkCode=as2&amp;tag=wwwryanringle-20">
+          The Well-Grounded Rubyist</a>,
+        <a href="http://www.amazon.com/gp/product/0321584104/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321584104&amp;linkCode=as2&amp;tag=wwwryanringle-20">
+          Eloquent Ruby</a>,
+        <a href="http://www.amazon.com/gp/product/059610197X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=059610197X&amp;linkCode=as2&amp;tag=wwwryanringle-20">
+          Head First HTML with CSS &amp; XHTML</a>,
+        <a href="http://www.amazon.com/gp/product/0596526849/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596526849&amp;linkCode=as2&amp;tag=wwwryanringle-20">
+          Head First SQL: Your Brain on SQL &#8211; A Learner&#8217;s Guide</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="projects">
+  <div class="row section-header">
+    <div class="col-xs-2 circle">
+      <i class="fa fa-terminal fa-2x"></i>
+    </div>
+    <div class="col-xs-5">
+      <h2>Projects</h2>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/pi_plant">
+          <i class="fa fa-github"></i>
+          pi_plant
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Ruby on Rails, Raspberry Pi, Electrical Engineering
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> A small rails webserver that runs on a
+        Raspberry Pi Model B that will monitor a plant&#8217;s soil moisture and
+        display the historical measurements. If the moisture level dips below a
+        preset threshold, a rake task will trigger a small aquarium pump to
+        water the plant
+      </p>
+      <p>
+        <strong>Why it&#8217;s cool:</strong> I like this project because it&#8217;s an
+        interesting mix of hardware and software.  The Raspberry Pi is fully
+        capable of supporting Debian linux and running a rails server, while
+        this project relies upon an analog moisture sensor, an ten-bit A2D
+        converter, and a power relay to switch on the aquarium pump.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/whipped-cream">
+          <i class="fa fa-github"></i>
+          whipped-cream (contributor)
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Sinatra, Raspberry Pi, dns-sd
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> A Ruby gem that creates a simple DSL for
+        creating a Raspberry Pi web server to monitor sensors, switches, and
+        buttons via the Pi&#8217;s GPIO pins. Utilizes a simple, mobile-ready
+        interface, and supports dns-sd/Bonjour discovery of other whipped-cream
+        Pis on the local network.
+      </p>
+      <p>
+        <strong>Why it&#8217;s cool:</strong> Anything on the Pi is fun, but this
+        project was also my first significant open-source contribution.  It was
+        also my first foray into ruby gems, and let me learn a bit about Travis
+        CI and dns-sd.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/voteline">
+          <i class="fa fa-github"></i>
+          Voteline
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Ruby on Rails, Bootstrap, Devise, Highcharts
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> Your typical public-facing rails
+        prototype that implements real-time public voting (similar to real-time
+        polling during political speeches.) Uses bootstrap for layout, devise
+        for user authentication, and Highcharts for data plotting.
+      </p>
+      <p>
+        <strong>Why it&#8217;s cool:</strong> This project was pretty simple, but fun
+        because I got to experiment a bit with the JSON API for returning
+        real-time votes, and the JavaScript for continually submitting votes.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/recreation.gov-scraper">
+          <i class="fa fa-github"></i>
+          Lower Pines
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Padrino, Bootstrap, Haml, Mechanize
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> A small weekend project to learn a bit
+        about Sinatra/Padrino.  This site scrapes the recreation.gov website for
+        open dates in Yosemite&#8217;s Lower Pines campground.  Utilizes the Padrino
+        framework, ActiveRecord for data persistance, and bootstrap for
+        appearance.
+      </p>
+      <p>
+        <strong>Why it&#8217;s cool:</strong> This project was fun because it
+        introduced me to an alternate MVC framework, and helped me realize what
+        parts of rails really shine and what parts I could live without. It&#8217;s
+        also super convenient.
+      </p>
+    </div>
+  </div>
+</section>
+
+
 <section id="education">
   <div class="row section-header">
-    <div class="col-xs-1 circle text-center">
-      <img src='images/science.png' width='36' height='36' />
+    <div class="col-xs-1 circle">
+      <i class="fa fa-graduation-cap fa-2x"></i>
     </div>
     <div class="col-xs-5">
       <h2>Education</h2>
@@ -159,7 +395,7 @@
       </h4>
     </div>
     <div class="col-xs-2 text-right">
-      <h4><small>Graduated 2005</small></h4>
+      <h4><small>2005</small></h4>
     </div>
   </div>
 
@@ -171,7 +407,7 @@
       </h4>
     </div>
     <div class="col-xs-2 text-right">
-      <h4><small>Graduated 2004<br />Cum Laude</small></h4>
+      <h4><small>2004<br />Cum Laude</small></h4>
     </div>
   </div>
 
@@ -191,8 +427,8 @@
 
 <section id="experience">
   <div class="row section-header">
-    <div class="col-xs-2 circle text-center">
-      <img src='images/briefcase.png' width='36' height='36' />
+    <div class="col-xs-2 circle">
+      <i class="fa fa-briefcase fa-2x"></i>
     </div>
     <div class="col-xs-5">
       <h2>Experience</h2>
@@ -395,120 +631,6 @@
 
 
 
-</section>
-
-
-<section id="skills">
-  <div class="row section-header">
-    <div class="col-xs-2 circle">
-      <img src='images/code.png' width='36' height='36' />
-    </div>
-    <div class="col-xs-5">
-      <h2>Skills Inventory</h2>
-    </div>
-  </div>
-
-  <hr />
-
-  <div class="row skills">
-    <div class="col-xs-3 text-right">
-      <p>Programming Skills</p>
-    </div>
-    <div class="col-xs-9">
-      <div class="row">
-        <p>
-          <em>Comfortable:</em>
-          <span  id='ruby'>
-            <img src='images/ruby.png' width='15' height='15' /> Ruby
-          </span>, Ruby on Rails, RSpec, HTML, ERB, CSS, Sass, JavaScript,
-          jQuery, Git, Github, Heroku
-        </p>
-      </div>
-      <div class="row">
-        <p>
-          <em>Familiar:</em> CoffeeScript, SQL, Excel VBA
-        </p>
-      </div>
-      <div class="row">
-        <p>
-          <em>Aware:</em> Test::Unit, Cucumber
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="row skills">
-    <div class="col-xs-3 text-right">
-      <p>Management Skills</p>
-    </div>
-    <div class="col-xs-9">
-      <p>
-        EVMS Level II (Expert), IMP/IMS Development &amp; Maintenance,
-        Microsoft Office Suite (including Project), IBM Rational DOORS,
-        Statement of Work Creation, Basis of Estimate Creation, Raytheon
-        Six Sigma (R6σ) Process Improvement
-      </p>
-    </div>
-  </div>
-
-  <div id="online-learning" class="row skills">
-    <div class="col-xs-3 text-right">
-      <p>Online Learning</p>
-    </div>
-    <div class="col-xs-9">
-      <div class="row">
-        <p>
-          <a href="http://www.codeschool.com/users/rringler">CodeSchool:</a>
-          Full Ruby Path (all courses), Full JavaScript Path (all courses),
-          Full HTML/CSS Path (all courses), Try Git, Git Real, Git Real 2,
-          Discover DevTools
-        </p>
-      </div>
-      <div class="row">
-        <p>
-          <a href="http://teamtreehouse.com/">Treehouse:</a>
-          Build a Simple Ruby on Rails Application, Ruby Foundations,
-          JavaScript Foundations, HTML Overview, Build a Simple Website Overview
-        </p>
-      </div>
-      <div class="row">
-        <p>
-          <a href="http://www.codecademy.com/users/rringler">Codecademy:</a>
-          Full Ruby Track (all courses)
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div id="technical-reading" class="row skills">
-    <div class="col-xs-3 text-right">
-      <p class="category">
-        <a href="http://www.goodreads.com/user/show/7479161-ryan-ringler">
-          Recent Readings
-        </a>
-      </p>
-    </div>
-    <div class="col-xs-9">
-      <p>
-        <a href="http://www.amazon.com/gp/product/0321721330/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321721330&amp;linkCode=as2&amp;tag=wwwryanringle-20">
-          Practical Object-Oriented Design in Ruby: An Agile Primer</a>,
-        <a href="http://www.amazon.com/gp/product/0321490452/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321490452&amp;linkCode=as2&amp;tag=wwwryanringle-20">
-          Design Patterns in Ruby</a>,
-        <a href="https://leanpub.com/everydayrailsrspec">
-          Everyday Rails Testing with RSpec</a>,
-        <a href="http://www.amazon.com/gp/product/0321832051/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321832051&amp;linkCode=as2&amp;tag=wwwryanringle-20">
-          Ruby on Rails 3 Tutorial: Learn Rails by Example</a>,
-        <a href="http://www.amazon.com/gp/product/1933988657/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1933988657&amp;linkCode=as2&amp;tag=wwwryanringle-20">
-          The Well-Grounded Rubyist</a>,
-        <a href="http://www.amazon.com/gp/product/0321584104/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321584104&amp;linkCode=as2&amp;tag=wwwryanringle-20">
-          Eloquent Ruby</a>,
-        <a href="http://www.amazon.com/gp/product/059610197X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=059610197X&amp;linkCode=as2&amp;tag=wwwryanringle-20">
-          Head First HTML with CSS &amp; XHTML</a>,
-        <a href="http://www.amazon.com/gp/product/0596526849/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596526849&amp;linkCode=as2&amp;tag=wwwryanringle-20">
-          Head First SQL: Your Brain on SQL &#8211; A Learner&#8217;s Guide</a>
-      </p>
-    </div>
-  </div>
 </section>
 
 

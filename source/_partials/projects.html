@@ -1,0 +1,120 @@
+<section id="projects">
+  <div class="row section-header">
+    <div class="col-xs-2 circle">
+      <i class="fa fa-terminal fa-2x"></i>
+    </div>
+    <div class="col-xs-5">
+      <h2>Projects</h2>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/pi_plant">
+          <i class="fa fa-github"></i>
+          pi_plant
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Ruby on Rails, Raspberry Pi, Electrical Engineering
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> A small rails webserver that runs on a
+        Raspberry Pi Model B that will monitor a plant's soil moisture and
+        display the historical measurements. If the moisture level dips below a
+        preset threshold, a rake task will trigger a small aquarium pump to
+        water the plant
+      </p>
+      <p>
+        <strong>Why it's cool:</strong> I like this project because it's an
+        interesting mix of hardware and software.  The Raspberry Pi is fully
+        capable of supporting Debian linux and running a rails server, while
+        this project relies upon an analog moisture sensor, an ten-bit A2D
+        converter, and a power relay to switch on the aquarium pump.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/whipped-cream">
+          <i class="fa fa-github"></i>
+          whipped-cream (contributor)
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Sinatra, Raspberry Pi, dns-sd
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> A Ruby gem that creates a simple DSL for
+        creating a Raspberry Pi web server to monitor sensors, switches, and
+        buttons via the Pi's GPIO pins. Utilizes a simple, mobile-ready
+        interface, and supports dns-sd/Bonjour discovery of other whipped-cream
+        Pis on the local network.
+      </p>
+      <p>
+        <strong>Why it's cool:</strong> Anything on the Pi is fun, but this
+        project was also my first significant open-source contribution.  It was
+        also my first foray into ruby gems, and let me learn a bit about Travis
+        CI and dns-sd.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/voteline">
+          <i class="fa fa-github"></i>
+          Voteline
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Ruby on Rails, Bootstrap, Devise, Highcharts
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> Your typical public-facing rails
+        prototype that implements real-time public voting (similar to real-time
+        polling during political speeches.) Uses bootstrap for layout, devise
+        for user authentication, and Highcharts for data plotting.
+      </p>
+      <p>
+        <strong>Why it's cool:</strong> This project was pretty simple, but fun
+        because I got to experiment a bit with the JSON API for returning
+        real-time votes, and the JavaScript for continually submitting votes.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        <a href="https://github.com/rringler/recreation.gov-scraper">
+          <i class="fa fa-github"></i>
+          Lower Pines
+        </a>
+        <small class="tags">
+          <strong>tags:</strong>
+          Ruby, Padrino, Bootstrap, Haml, Mechanize
+        </small>
+      </h3>
+      <p>
+        <strong>Description: </strong> A small weekend project to learn a bit
+        about Sinatra/Padrino.  This site scrapes the recreation.gov website for
+        open dates in Yosemite's Lower Pines campground.  Utilizes the Padrino
+        framework, ActiveRecord for data persistance, and bootstrap for
+        appearance.
+      </p>
+      <p>
+        <strong>Why it's cool:</strong> This project was fun because it
+        introduced me to an alternate MVC framework, and helped me realize what
+        parts of rails really shine and what parts I could live without. It's
+        also super convenient.
+      </p>
+    </div>
+  </div>
+</section>
