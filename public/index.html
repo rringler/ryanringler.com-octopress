@@ -28,19 +28,6 @@
 
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
-  
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-21693656-1', 'ryanringler.com');
-    ga('send', 'pageview');
-
-  </script>
-
-
 </head>
 
   <body   >
@@ -256,115 +243,163 @@
 
   <hr />
 
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>
-        <a href="https://github.com/rringler/pi_plant">
-          <i class="fa fa-github"></i>
-          pi_plant
-        </a>
-        <small class="tags">
-          <strong>tags:</strong>
-          Ruby, Ruby on Rails, Raspberry Pi, Electrical Engineering
-        </small>
-      </h3>
-      <p>
-        <strong>Description: </strong> A small rails webserver that runs on a
-        Raspberry Pi Model B that will monitor a plant&#8217;s soil moisture and
-        display the historical measurements. If the moisture level dips below a
-        preset threshold, a rake task will trigger a small aquarium pump to
-        water the plant
-      </p>
-      <p>
-        <strong>Why it&#8217;s cool:</strong> I like this project because it&#8217;s an
-        interesting mix of hardware and software.  The Raspberry Pi is fully
-        capable of supporting Debian linux and running a rails server, while
-        this project relies upon an analog moisture sensor, an ten-bit A2D
-        converter, and a power relay to switch on the aquarium pump.
-      </p>
+  <div id="carousel-github-projects" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-github-projects" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-github-projects" data-slide-to="1"></li>
+      <li data-target="#carousel-github-projects" data-slide-to="2"></li>
+      <li data-target="#carousel-github-projects" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="text-center">
+              <a href="https://github.com/rringler/pi_plant">
+                <img src='images/pi_plant.png' />
+              </a>
+            </div>
+            <h3>
+              <a href="https://github.com/rringler/pi_plant">
+                <i class="fa fa-github"></i>
+                pi_plant
+              </a>
+              <small class="tags">
+                <strong>tags:</strong>
+                Ruby, Ruby on Rails, Raspberry Pi, Electrical Engineering
+              </small>
+            </h3>
+            <p>
+              <strong>Description: </strong> A small rails webserver that runs on a
+              Raspberry Pi Model B that will monitor a plant&#8217;s soil moisture and
+              display the historical measurements. If the moisture level dips below a
+              preset threshold, a rake task will trigger a small aquarium pump to
+              water the plant
+            </p>
+            <p>
+              <strong>Why it&#8217;s cool:</strong> I like this project because it&#8217;s an
+              interesting mix of hardware and software.  The Raspberry Pi is fully
+              capable of supporting Debian linux and running a rails server, while
+              this project relies upon an analog moisture sensor, an ten-bit A2D
+              converter, and a power relay to switch on the aquarium pump.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="text-center">
+              <a href="https://github.com/justincampbell/whipped-cream">
+                <img src='images/whipped_cream.png' />
+              </a>
+            </div>
+            <h3>
+              <a href="https://github.com/justincampbell/whipped-cream">
+                <i class="fa fa-github"></i>
+                whipped-cream (contributor)
+              </a>
+              <small class="tags">
+                <strong>tags:</strong>
+                Ruby, Sinatra, Raspberry Pi, dns-sd
+              </small>
+            </h3>
+            <p>
+              <strong>Description: </strong> A Ruby gem that creates a simple DSL for
+              creating a Raspberry Pi web server to monitor sensors, switches, and
+              buttons via the Pi&#8217;s GPIO pins. Utilizes a simple, mobile-ready
+              interface, and supports dns-sd/Bonjour discovery of other whipped-cream
+              Pis on the local network.
+            </p>
+            <p>
+              <strong>Why it&#8217;s cool:</strong> Anything on the Pi is fun, but this
+              project was also my first significant open-source contribution.  It was
+              also my first foray into ruby gems, and let me learn a bit about Travis
+              CI and dns-sd.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="text-center">
+              <a href="https://github.com/rringler/voteline">
+                <img src='images/voteline.png' />
+              </a>
+            </div>
+            <h3>
+              <a href="https://github.com/rringler/voteline">
+                <i class="fa fa-github"></i>
+                Voteline
+              </a>
+              <small class="tags">
+                <strong>tags:</strong>
+                Ruby, Ruby on Rails, Bootstrap, Devise, Highcharts
+              </small>
+            </h3>
+            <p>
+              <strong>Description: </strong> Your typical public-facing rails
+              prototype that implements real-time public voting (similar to real-time
+              polling during political speeches.) Uses bootstrap for layout, devise
+              for user authentication, and Highcharts for data plotting.
+            </p>
+            <p>
+              <strong>Why it&#8217;s cool:</strong> This project was pretty simple, but fun
+              because I got to experiment a bit with the JSON API for returning
+              real-time votes, and the JavaScript for continually submitting votes.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="text-center">
+              <a href="https://github.com/rringler/recreation.gov-scraper">
+                <img src='images/lower-pines.png' />
+              </a>
+            </div>
+            <h3>
+              <a href="https://github.com/rringler/recreation.gov-scraper">
+                <i class="fa fa-github"></i>
+                Lower Pines
+              </a>
+              <small class="tags">
+                <strong>tags:</strong>
+                Ruby, Padrino, Bootstrap, Haml, Mechanize
+              </small>
+            </h3>
+            <p>
+              <strong>Description: </strong> A small weekend project to learn a bit
+              about Sinatra/Padrino.  This site scrapes the recreation.gov website for
+              open dates in Yosemite&#8217;s Lower Pines campground.  Utilizes the Padrino
+              framework, ActiveRecord for data persistance, and bootstrap for
+              appearance.
+            </p>
+            <p>
+              <strong>Why it&#8217;s cool:</strong> This project was fun because it
+              introduced me to an alternate MVC framework, and helped me realize what
+              parts of rails really shine and what parts I could live without. It&#8217;s
+              also super convenient.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>
-        <a href="https://github.com/rringler/whipped-cream">
-          <i class="fa fa-github"></i>
-          whipped-cream (contributor)
-        </a>
-        <small class="tags">
-          <strong>tags:</strong>
-          Ruby, Sinatra, Raspberry Pi, dns-sd
-        </small>
-      </h3>
-      <p>
-        <strong>Description: </strong> A Ruby gem that creates a simple DSL for
-        creating a Raspberry Pi web server to monitor sensors, switches, and
-        buttons via the Pi&#8217;s GPIO pins. Utilizes a simple, mobile-ready
-        interface, and supports dns-sd/Bonjour discovery of other whipped-cream
-        Pis on the local network.
-      </p>
-      <p>
-        <strong>Why it&#8217;s cool:</strong> Anything on the Pi is fun, but this
-        project was also my first significant open-source contribution.  It was
-        also my first foray into ruby gems, and let me learn a bit about Travis
-        CI and dns-sd.
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>
-        <a href="https://github.com/rringler/voteline">
-          <i class="fa fa-github"></i>
-          Voteline
-        </a>
-        <small class="tags">
-          <strong>tags:</strong>
-          Ruby, Ruby on Rails, Bootstrap, Devise, Highcharts
-        </small>
-      </h3>
-      <p>
-        <strong>Description: </strong> Your typical public-facing rails
-        prototype that implements real-time public voting (similar to real-time
-        polling during political speeches.) Uses bootstrap for layout, devise
-        for user authentication, and Highcharts for data plotting.
-      </p>
-      <p>
-        <strong>Why it&#8217;s cool:</strong> This project was pretty simple, but fun
-        because I got to experiment a bit with the JSON API for returning
-        real-time votes, and the JavaScript for continually submitting votes.
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>
-        <a href="https://github.com/rringler/recreation.gov-scraper">
-          <i class="fa fa-github"></i>
-          Lower Pines
-        </a>
-        <small class="tags">
-          <strong>tags:</strong>
-          Ruby, Padrino, Bootstrap, Haml, Mechanize
-        </small>
-      </h3>
-      <p>
-        <strong>Description: </strong> A small weekend project to learn a bit
-        about Sinatra/Padrino.  This site scrapes the recreation.gov website for
-        open dates in Yosemite&#8217;s Lower Pines campground.  Utilizes the Padrino
-        framework, ActiveRecord for data persistance, and bootstrap for
-        appearance.
-      </p>
-      <p>
-        <strong>Why it&#8217;s cool:</strong> This project was fun because it
-        introduced me to an alternate MVC framework, and helped me realize what
-        parts of rails really shine and what parts I could live without. It&#8217;s
-        also super convenient.
-      </p>
-    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-github-projects" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-github-projects" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
   </div>
 </section>
-
 
 <section id="education">
   <div class="row section-header">
@@ -648,29 +683,35 @@
 
 </div>
 </footer>
-    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script> -->
 <script src="/javascripts/modernizr-2.0.js"></script>
+<script src="/javascripts/custom.js"></script>
 
 
 
 
 
 
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-21693656-1', 'ryanringler.com');
+    ga('send', 'pageview');
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
   </script>
 
 
 
 
+
+
+
+
+<script src="/assets/bootstrap/js/transition.js"></script>
+<script src="/assets/bootstrap/js/carousel.js"></script>
 
   </body>
 </html>

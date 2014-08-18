@@ -58,6 +58,12 @@ section {
   }
 
   &#projects {
+    .carousel-control { color: $link-color; }
+    .carousel-indicators li { border: 1px solid $link-color; }
+    .carousel-indicators li.active { background-color: $link-color; }
+    .carousel-inner .row { padding-bottom: 3em; }
+    .carousel-inner a img { max-width: 80%; }
+    .carousel-control.left, .carousel-control.right { background-image: none; }
     h3 { text-shadow: none; }
     i { margin: 14px 0 0 -2px; }
     small.tags { padding-left: 14px;}
