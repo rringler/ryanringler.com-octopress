@@ -7,25 +7,25 @@ categories: [Bootstrap, JavaScript, jQuery]
 ---
 
 %p
-  Twitter Bootstrap is awesome.  The amount of web development that Bootstrap
-  makes easy.  One of Bootstrap's great features is easy carousels; it's an
-  easy way to display a lot of information without taking up a lot of vertical
-  height.  With Bootstrap, we just wrap our content in a couple of divs, and
-  before we know it we have a nice scolling carousel.
+  Twitter Bootstrap is awesome.  The amount of grunt work that Bootstrap makes
+  easy is amazing.  One of Bootstrap's great features is animated carousels;
+  they are a nice way to display a lot of information without taking up a lot of
+  vertical height.  With Bootstrap, we just wrap our content in a couple of
+  divs, and before we know it we have a nice scolling carousel.
 
 %p
-  One thing that I don't like Bootstrap's carousel implementation is that it
-  dynamically resizes the carousel's height based on the size of the content
-  it's currently displaying.  If all your content is exactly the same height,
-  this isn't such a big deal, but it's not you end up with all your page
-  elements below the carousel jumping around as the carousel scrolls.  This
-  seems like terrible UX to me.
+  One thing that I don't like about Bootstrap's carousel implementation is that
+  it dynamically resizes the carousel's height based on the size of the content
+  currently being displaying.  If all your content is exactly the same height
+  this isn't such a big deal, but if it's not you end up with page elements
+  below the carousel jumping around as the carousel resizes.  This seems like
+  terrible UX to me.
 
 %p
-  Thankfully this is not terribly difficult to fix.  In just a few lines of
+  Thankfully this is not all that difficult to fix.  In just a few lines of
   JavaScript/jQuery, we can scan through the carousel slides and determine the
-  height of the tallest slide, and use that height for all the slides.  The code
-  is pretty straightforward:
+  height of the tallest slide, and use its height for all of them.  The code is
+  pretty straightforward:
 
 {% codeblock lang:javascript %}
 function carouselNormalization() {

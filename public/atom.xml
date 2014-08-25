@@ -4,7 +4,7 @@
   <title><![CDATA[Ryan Ringler.com]]></title>
   <link href="http://ryanringler.com/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2014-08-24T20:59:01-07:00</updated>
+  <updated>2014-08-24T23:53:57-07:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -19,25 +19,25 @@
     <updated>2014-08-24T20:08:41-07:00</updated>
     <id>http://ryanringler.com/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap</id>
     <content type="html"><![CDATA[<p>
-  Twitter Bootstrap is awesome.  The amount of web development that Bootstrap
-  makes easy.  One of Bootstrap&#8217;s great features is easy carousels; it&#8217;s an
-  easy way to display a lot of information without taking up a lot of vertical
-  height.  With Bootstrap, we just wrap our content in a couple of divs, and
-  before we know it we have a nice scolling carousel.
+  Twitter Bootstrap is awesome.  The amount of grunt work that Bootstrap makes
+  easy is amazing.  One of Bootstrap&#8217;s great features is animated carousels;
+  they are a nice way to display a lot of information without taking up a lot of
+  vertical height.  With Bootstrap, we just wrap our content in a couple of
+  divs, and before we know it we have a nice scolling carousel.
 </p>
 <p>
-  One thing that I don&#8217;t like Bootstrap&#8217;s carousel implementation is that it
-  dynamically resizes the carousel&#8217;s height based on the size of the content
-  it&#8217;s currently displaying.  If all your content is exactly the same height,
-  this isn&#8217;t such a big deal, but it&#8217;s not you end up with all your page
-  elements below the carousel jumping around as the carousel scrolls.  This
-  seems like terrible UX to me.
+  One thing that I don&#8217;t like about Bootstrap&#8217;s carousel implementation is that
+  it dynamically resizes the carousel&#8217;s height based on the size of the content
+  currently being displaying.  If all your content is exactly the same height
+  this isn&#8217;t such a big deal, but if it&#8217;s not you end up with page elements
+  below the carousel jumping around as the carousel resizes.  This seems like
+  terrible UX to me.
 </p>
 <p>
-  Thankfully this is not terribly difficult to fix.  In just a few lines of
+  Thankfully this is not all that difficult to fix.  In just a few lines of
   JavaScript/jQuery, we can scan through the carousel slides and determine the
-  height of the tallest slide, and use that height for all the slides.  The code
-  is pretty straightforward:
+  height of the tallest slide, and use its height for all of them.  The code is
+  pretty straightforward:
 </p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
