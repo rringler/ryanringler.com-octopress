@@ -1,0 +1,79 @@
+---
+layout: post
+title: "Fixed-Height Carousel for Twitter Bootstrap"
+date: 2014-08-24 20:08:41 -0700
+comments: true
+categories: [Bootstrap, JavaScript, jQuery]
+---
+
+%p
+  Twitter Bootstrap is awesome.  The amount of web development that Bootstrap
+  makes easy.  One of Bootstrap's great features is easy carousels; it's an
+  easy way to display a lot of information without taking up a lot of vertical
+  height.  With Bootstrap, we just wrap our content in a couple of divs, and
+  before we know it we have a nice scolling carousel.
+
+%p
+  One thing that I don't like Bootstrap's carousel implementation is that it
+  dynamically resizes the carousel's height based on the size of the content
+  it's currently displaying.  If all your content is exactly the same height,
+  this isn't such a big deal, but it's not you end up with all your page
+  elements below the carousel jumping around as the carousel scrolls.  This
+  seems like terrible UX to me.
+
+%p
+  Thankfully this is not terribly difficult to fix.  In just a few lines of
+  JavaScript/jQuery, we can scan through the carousel slides and determine the
+  height of the tallest slide, and use that height for all the slides.  The code
+  is pretty straightforward:
+
+{% codeblock lang:javascript %}
+function carouselNormalization() {
+  var items   = $('#carousel-id .item'),              // grab all the slides
+      heights = [],                                   // array to store heights
+      tallest;                                        // tallest slide
+
+  if (items.length) {
+    function normalizeHeights() {
+      items.each(function() {
+        heights.push($(this).height());               // add each slide's height
+      });                                             // to the array
+
+      tallest = Math.max.apply(null, heights);        // find the largest height
+
+      items.each(function() {
+        $(this).css('min-height', tallest + 'px');    // set each slide's minimum
+      });                                             // height to the largest
+    };
+
+    normalizeHeights();
+
+    $(window).on('resize orientationchange', function() {
+      tallest = 0, heights.length = 0;               // reset the variables
+
+      items.each(function() {
+        $(this).css('min-height', '0');              // reset each slide's height
+      });
+
+      normalizeHeights();                            // run it again
+    });
+  }
+}
+{% endcodeblock %}
+
+%p
+  Call that in a document.ready block:
+
+{% codeblock lang:javascript %}
+$('document').ready(function() {
+  carouselNormalization();
+});
+{% endcodeblock %}
+
+%p
+  and your page elements will stop jumping around.
+
+%p
+  H/T to
+  %a{href: "https://coderwall.com/p/uf2pka"} Eddie Staples's post
+  for providing the basic JavaScript.

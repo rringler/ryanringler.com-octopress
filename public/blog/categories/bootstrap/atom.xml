@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Bootstrap | Ryan Ringler.com]]></title>
+  <link href="http://ryanringler.com/blog/categories/bootstrap/atom.xml" rel="self"/>
+  <link href="http://ryanringler.com/"/>
+  <updated>2014-08-24T20:44:42-07:00</updated>
+  <id>http://ryanringler.com/</id>
+  <author>
+    <name><![CDATA[Ryan Ringler]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fixed-Height Carousel for Twitter Bootstrap]]></title>
+    <link href="http://ryanringler.com/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap/"/>
+    <updated>2014-08-24T20:08:41-07:00</updated>
+    <id>http://ryanringler.com/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap</id>
+    <content type="html"><![CDATA[<p>%p
+  Twitter Bootstrap is awesome.  The amount of web development that Bootstrap
+  makes easy.  One of Bootstrap&rsquo;s great features is easy carousels; it&rsquo;s an
+  easy way to display a lot of information without taking up a lot of vertical
+  height.  With Bootstrap, we just wrap our content in a couple of divs, and
+  before we know it we have a nice scolling carousel.</p>
+
+<p>%p
+  One thing that I don&rsquo;t like Bootstrap&rsquo;s carousel implementation is that it
+  dynamically resizes the carousel&rsquo;s height based on the size of the content
+  it&rsquo;s currently displaying.  If all your content is exactly the same height,
+  this isn&rsquo;t such a big deal, but it&rsquo;s not you end up with all your page
+  elements below the carousel jumping around as the carousel scrolls.  This
+  seems like terrible UX to me.</p>
+
+<p>%p
+  Thankfully this is not terribly difficult to fix.  In just a few lines of
+  JavaScript/jQuery, we can scan through the carousel slides and determine the
+  height of the tallest slide, and use that height for all the slides.  The code
+  is pretty straightforward:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">carouselNormalization</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">items</span>   <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">#</span><span class="nx">carousel</span><span class="o">-</span><span class="nx">id</span> <span class="p">.</span><span class="nx">item</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;),</span>              <span class="c1">// grab all the slides&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nx">heights</span> <span class="o">=</span> <span class="p">[],</span>                                   <span class="c1">// array to store heights</span>
+</span><span class='line'>  <span class="nx">tallest</span><span class="p">;</span>                                        <span class="c1">// tallest slide</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="k">if</span> <span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">normalizeHeights</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">items</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">heights</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">height</span><span class="p">());</span>               <span class="c1">// add each slide&#39;s height</span>
+</span><span class='line'>  <span class="p">});</span>                                             <span class="c1">// to the array</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">tallest</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">heights</span><span class="p">);</span>        <span class="c1">// find the largest height</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">items</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;min-height&#39;</span><span class="p">,</span> <span class="nx">tallest</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>    <span class="c1">// set each slide&#39;s minimum</span>
+</span><span class='line'>  <span class="p">});</span>                                             <span class="c1">// height to the largest</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">normalizeHeights</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;resize orientationchange&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">tallest</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">heights</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>               <span class="c1">// reset the variables</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">items</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;min-height&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>              <span class="c1">// reset each slide&#39;s height</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">normalizeHeights</span><span class="p">();</span>                            <span class="c1">// run it again</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>%p
+  Call that in a document.ready block:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nb">document</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">carouselNormalization</span><span class="p">();</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>%p
+  and your page elements will stop jumping around.</p>
+
+<p>%p
+  H/T to
+  %a{href: &ldquo;<a href="https://coderwall.com/p/uf2pka">https://coderwall.com/p/uf2pka</a>&rdquo;} Eddie Staples&rsquo;s post
+  for providing the basic JavaScript.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rake | Ryan Ringler.com]]></title>
   <link href="http://ryanringler.com/blog/categories/rake/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2014-08-17T17:27:51-07:00</updated>
+  <updated>2014-08-24T20:44:42-07:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -37,8 +37,8 @@
 
 <p>%p
   H/T to
-  %a{href: &ldquo;<a href="http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/">http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/</a>&rdquo;} James Badger&rsquo;s
-  post for spelling this out.</p>
+  %a{href: &ldquo;<a href="http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/">http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/</a>&rdquo;} James Badger&rsquo;s post
+  for spelling this out.</p>
 ]]></content>
   </entry>
   

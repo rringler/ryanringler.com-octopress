@@ -1,24 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-
-  <title><![CDATA[Ryan Ringler.com]]></title>
-  <link href="http://ryanringler.com/atom.xml" rel="self"/>
-  <link href="http://ryanringler.com/"/>
-  <updated>2014-08-24T20:44:42-07:00</updated>
-  <id>http://ryanringler.com/</id>
-  <author>
-    <name><![CDATA[Ryan Ringler]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Fixed-Height Carousel for Twitter Bootstrap - Ryan Ringler.com</title>
+  <meta name="author" content="Ryan Ringler">
 
   
-  <entry>
-    <title type="html"><![CDATA[Fixed-Height Carousel for Twitter Bootstrap]]></title>
-    <link href="http://ryanringler.com/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap/"/>
-    <updated>2014-08-24T20:08:41-07:00</updated>
-    <id>http://ryanringler.com/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap</id>
-    <content type="html"><![CDATA[<p>
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ryanringler.com/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap">
+  <link href="/favicon.ico" type="image/x-icon" rel="icon">
+  <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link href="/atom.xml" rel="alternate" title="Ryan Ringler.com" type="application/atom+xml">
+
+  <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/assets/bootstrap/dist/css/bootstrap-cerulean.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta name="google-site-verification" content="Vmxf8lrwDyqcKr7eJ0Nn8xkfs83B7XsS171hpNNRm_0" />
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Ryan Ringler.com</a>
+    </div>
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav"></ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Contact me <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="mailto:jobs@ryanringler.com">
+                <i class="fa fa-envelope-o"></i>email: jobs@ryanringler.com
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/rringler">
+                <i class="fa fa-github"></i> github: rringler
+              </a>
+            </li>
+            <li>
+              <a href="http://www.linkedin.com/in/rringler">
+                <i class="fa fa-linkedin"></i> linked in: rringler
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="active">
+          <a href="/blog">Blog</a>
+        </li>
+        
+          <li >
+            <a href="/blog/archives">Archives</a>
+          </li>
+          
+            <li>
+              <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                <input type="hidden" name="q" value="site:ryanringler.com">
+                <div class="form-group">
+                  <input class="form-control" type="text" name="q" placeholder="Search">
+                </div>
+              </form>
+            </li>
+          
+          <li>
+            <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+              <span class="visible-xs">RSS</span>
+              <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+            </a>
+          </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-24T20:08:41-07:00" pubdate data-updated="true">Aug 24<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        Fixed-Height Carousel for Twitter Bootstrap
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><p>
   Twitter Bootstrap is awesome.  The amount of web development that Bootstrap
   makes easy.  One of Bootstrap&#8217;s great features is easy carousels; it&#8217;s an
   easy way to display a lot of information without taking up a lot of vertical
@@ -120,100 +239,114 @@
   <a href='https://coderwall.com/p/uf2pka'>Eddie Staples&#8217;s post</a>
   for providing the basic JavaScript.
 </p>
-]]></content>
-  </entry>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
   
-  <entry>
-    <title type="html"><![CDATA[Generating a New Rails Secret Key]]></title>
-    <link href="http://ryanringler.com/blog/2014/07/20/generating-rails-secret-keys/"/>
-    <updated>2014-07-20T14:34:02-07:00</updated>
-    <id>http://ryanringler.com/blog/2014/07/20/generating-rails-secret-keys</id>
-    <content type="html"><![CDATA[<p>
-  Ruby on Rails takes care of most of our site security for us.  About the only
-  thing we have to do is be careful with our secret keys.  This means keeping
-  them out of public repos.  If you realize you&#8217;ve revealed your secret key,
-  Rails still has your back.  There&#8217;s a very simple rake task to generate a
-  new secret key:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rake secret
-</span><span class='line'>d781e04897092465...
-</span></code></pre></td></tr></table></div></figure>
-<p>
-  and you&#8217;ll get a new, secure 64-character random key.  Try not to check this
-  one into source control.
-</p>
-<p>
-  H/T to
-  <a href='http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/'>James Badger&#8217;s post</a>
-  for spelling this out.
-</p>
-]]></content>
-  </entry>
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">Ryan Ringler</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-24T20:08:41-07:00" pubdate data-updated="true">Aug 24<span>th</span>, 2014</time>
+          
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
   
-  <entry>
-    <title type="html"><![CDATA[ActiveRecord: Decimal Datatype and its options]]></title>
-    <link href="http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/"/>
-    <updated>2014-06-23T18:01:58-07:00</updated>
-    <id>http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options</id>
-    <content type="html"><![CDATA[<p>
-  Ruby on Rails&#8217;s ActiveRecord supports the normal decimal SQL data type, with
-  support for both precision and scale options.  Unfortunately these two options
-  are simple enough to understand, but similar enough to confuse.
-</p>
-<p>
-  In short, precision is the total number of digits in the decimal number,
-  while scale is the number of digits to the right of the decimal place.  Thus,
-  the following migration:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateNumbersTable</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">up</span>
-</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:numbers</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">decimal</span> <span class="ss">:decimal_number</span><span class="p">,</span> <span class="ss">precision</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="ss">scale</span><span class="p">:</span> <span class="mi">2</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">down</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-<p>
-  creates a numbers table with a
-  <strong>
-    decimal_number
-  </strong>
-  column that will accept data in a X,XXX.XX format.  Try to insert a number
-  with more digits (say, 10,000.00) and it will give you an out-of-range error
-  (as I wrestled with last night.)
-</p>
-<p>
-  H/T to
-  <a href='https://www.jtanium.com/2009/10/06/rails-migrations-decimal-precision-and-scale/'>Jtanium&#8217;s post</a>
-  for making this clear for me.
-</p>
-]]></content>
-  </entry>
+    <a class='category' href='/blog/categories/bootstrap/'>Bootstrap</a>, <a class='category' href='/blog/categories/javascript/'>JavaScript</a>, <a class='category' href='/blog/categories/jquery/'>jQuery</a>
   
-  <entry>
-    <title type="html"><![CDATA[Hello World.rb]]></title>
-    <link href="http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb/"/>
-    <updated>2014-03-08T11:49:34-08:00</updated>
-    <id>http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb</id>
-    <content type="html"><![CDATA[<p>
-  First post.
-</p>
-]]></content>
-  </entry>
+</span>
+
+
+        </p>
+        
+          <div class="sharing">
   
-</feed>
+  
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2014/07/20/generating-rails-secret-keys/" title="Previous Post: Generating a New Rails Secret Key">&laquo; Generating a New Rails Secret Key</a></li>
+            
+            
+          </ul>
+        
+      </footer>
+    </article>
+    
+  </div>
+
+  
+  <aside class="sidebar col-md-3">
+    
+      
+    
+  </aside>
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - Ryan Ringler<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
+</p>
+
+</div>
+</footer>
+    <!-- <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<script src="/javascripts/modernizr-2.0.js"></script>
+<script src="/javascripts/custom.js"></script>
+
+
+
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-21693656-1', 'ryanringler.com');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+
+
+
+<script src="/assets/bootstrap/js/transition.js"></script>
+<script src="/assets/bootstrap/js/carousel.js"></script>
+
+  </body>
+</html>
