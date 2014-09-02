@@ -1,0 +1,32 @@
+.codeschool-badge {
+  background: none;
+  box-shadow: none;
+  height: 110px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 110px;
+
+  svg {
+    border-radius: 50%;
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.codeschool-badge-list {
+  margin: 0 auto;
+  list-style-type: none;
+
+  li {
+    float: left;
+    margin-right: 15px;
+    display: inline;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
