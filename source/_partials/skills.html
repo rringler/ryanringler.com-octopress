@@ -58,19 +58,24 @@
     <div class="col-xs-9">
       <div class="row">
         <a href="http://www.codeschool.com/users/rringler">CodeSchool:</a>
-        {% render_partial _partials/codeschool.html %}
+
+        {% render_partial _partials/skills/codeschool.html %}
+
       </div>
       <div class="row">
         <p>
           <a href="http://teamtreehouse.com/">Treehouse:</a>
-          Build a Simple Ruby on Rails Application, Ruby Foundations,
-          JavaScript Foundations, HTML Overview, Build a Simple Website Overview
+
+          {% render_partial _partials/skills/treehouse.html %}
+
         </p>
       </div>
       <div class="row">
         <p>
           <a href="http://www.codecademy.com/users/rringler">Codecademy:</a>
-          Full Ruby Track (all courses)
+
+          {% render_partial _partials/skills/codecademy.html %}
+
         </p>
       </div>
     </div>

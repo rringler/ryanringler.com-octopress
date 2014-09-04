@@ -1,0 +1,24 @@
+.codecademy-badge {
+  min-width: 105px;
+  .glyph { min-height: 82px; }
+  h4, p {
+    font-family: "Nunito", Arial, sans-serif;
+    text-transform: uppercase;
+    color: #204056;
+  }
+}
+
+.codecademy-badge-list {
+  margin: 0 auto;
+  list-style-type: none;
+
+  li {
+    float: left;
+    margin-right: 25px;
+    display: inline;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
