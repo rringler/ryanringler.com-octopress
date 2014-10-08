@@ -5,24 +5,19 @@ function updateBadgeImgSrc() {
 
       switch(alt) {
         case "Ruby Path Badge":
-          img.attr("src", "https://d1tijy5l7mg5kk.cloudfront.net/assets/path/"
-                        + "badge-ruby-eb378661b50764d87959317b150f9cf1.svg");
+          img.attr("src", "images/codeschool-ruby.jpg");
           break;
         case "JavaScript Path Badge":
-          img.attr("src", "https://d1tijy5l7mg5kk.cloudfront.net/assets/path/"
-                        + "badge-javascript-8308f5b0e560b8cbf268e15fe4bda76d.svg");
+          img.attr("src", "images/codeschool-javascript.jpg");
           break;
         case "HTML/CSS Path Badge":
-          img.attr("src", "https://d1tijy5l7mg5kk.cloudfront.net/assets/path/"
-                        + "badge-html-css-4f19360fac36a0c5dec0c62f76743163.svg");
+          img.attr("src", "images/codeschool-html-css.jpg");
           break;
         case "iOS Path Badge":
-          img.attr("src", "https://d1tijy5l7mg5kk.cloudfront.net/assets/path/"
-                        + "badge-ios-0997b6ad45ec7a7ba0e9532213651f32.svg");
+          img.attr("src", "images/codeschool-ios.svg");
           break;
         case "Electives Path Badge":
-          img.attr("src", "https://d1tijy5l7mg5kk.cloudfront.net/assets/path/"
-                        + "badge-electives-460a0db7e3bd1772d7cf49519b6748fe.svg");
+          img.attr("src", "images/codeschool-electives.jpg");
           break;
       }
   });
@@ -42,8 +37,8 @@ function animateBadgeShading() {
     };
 
     var options = {
-      height: height,
-      width:  width
+      height: height + 14,
+      width:  width + 14
     };
 
     var canvas = new Two(options).appendTo(this);
