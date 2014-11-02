@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Enumerable's #each_with_object Loves You - Ryan Ringler.com</title>
+  <meta name="author" content="Ryan Ringler">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ryanringler.com/blog/2014/11/01/enumerables-number-each-with-object-loves-you">
+  <link href="/favicon.ico" type="image/x-icon" rel="icon">
+  <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link href="/atom.xml" rel="alternate" title="Ryan Ringler.com" type="application/atom+xml">
+
+  <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/assets/bootstrap/dist/css/bootstrap-cerulean.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Nunito:300' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta name="google-site-verification" content="Vmxf8lrwDyqcKr7eJ0Nn8xkfs83B7XsS171hpNNRm_0" />
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Ryan Ringler.com</a>
+    </div>
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav"></ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Contact me <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="mailto:jobs@ryanringler.com">
+                <i class="fa fa-envelope-o"></i>email: jobs@ryanringler.com
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/rringler">
+                <i class="fa fa-github"></i> github: rringler
+              </a>
+            </li>
+            <li>
+              <a href="http://www.linkedin.com/in/rringler">
+                <i class="fa fa-linkedin"></i> linked in: rringler
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="active">
+          <a href="/blog">Blog</a>
+        </li>
+        
+          <li >
+            <a href="/blog/archives">Archives</a>
+          </li>
+          
+            <li>
+              <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                <input type="hidden" name="q" value="site:ryanringler.com">
+                <div class="form-group">
+                  <input class="form-control" type="text" name="q" placeholder="Search">
+                </div>
+              </form>
+            </li>
+          
+          <li>
+            <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+              <span class="visible-xs">RSS</span>
+              <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+            </a>
+          </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-11-01T21:46:20-07:00" pubdate data-updated="true">Nov 1<span>st</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        Enumerable's #each_with_object Loves You
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><p>
+  Ruby&#8217;s Enumerable module is beautiful.  Coming from a more procedural
+  programming background, it can take some time to fully appreciate that beauty.
+  One pattern I see new Rubyists repeating relates to transforming data
+  structures.  This is an easy problem for a proceduralist:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">new_item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span>
+</span><span class='line'>    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">new_item</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">array</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  This works, but it&#8217;s not beautiful.  It&#8217;s even worse if the proceduralist
+  loops over the data to transform.  Once the proceduralist embraces Ruby, and
+  studies the Enumerable module, they learn of the #each_with_object method.
+  This method allows us to simplify our code:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  Enumerable#each_with_object allows us to declare the new data structure as a
+  parameter, reference it in our block, and then returns it for us; all in one
+  method call.  For simple operations, this can often be a one-liner:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span> <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  This is beautiful.  Any time you find yourself instantiating a
+  new data structure and then filling it, consider using #each_with_object.
+</p>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">Ryan Ringler</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-11-01T21:46:20-07:00" pubdate data-updated="true">Nov 1<span>st</span>, 2014</time>
+          
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/enumerable/'>Enumerable</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+        </p>
+        
+          <div class="sharing">
+  
+  
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap/" title="Previous Post: Fixed-Height Carousel for Twitter Bootstrap">&laquo; Fixed-Height Carousel for Twitter Bootstrap</a></li>
+            
+            
+          </ul>
+        
+      </footer>
+    </article>
+    
+  </div>
+
+  
+  <aside class="sidebar col-md-3">
+    
+      
+    
+  </aside>
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - Ryan Ringler<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
+</p>
+
+</div>
+</footer>
+    <!-- <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-21693656-1', 'ryanringler.com');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+
+
+
+
+
+<script src="/assets/bootstrap/js/transition.js"></script>
+<script src="/assets/bootstrap/js/tooltip.js"></script>
+<script src="/assets/bootstrap/js/carousel.js"></script>
+<script src="/assets/bootstrap/js/dropdown.js"></script>
+<script src="/javascripts/bootstrap-carousel-normalization.js"></script>
+<script src="/javascripts/codeschool-badges.js"></script>
+<script src="/javascripts/libs/two.js"></script>
+<script src="/javascripts/custom.js"></script>
+
+  </body>
+</html>

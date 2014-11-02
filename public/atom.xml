@@ -4,7 +4,7 @@
   <title><![CDATA[Ryan Ringler.com]]></title>
   <link href="http://ryanringler.com/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2014-10-07T22:29:37-07:00</updated>
+  <updated>2014-11-01T22:37:14-07:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Enumerable's #each_with_object Loves You]]></title>
+    <link href="http://ryanringler.com/blog/2014/11/01/enumerables-number-each-with-object-loves-you/"/>
+    <updated>2014-11-01T21:46:20-07:00</updated>
+    <id>http://ryanringler.com/blog/2014/11/01/enumerables-number-each-with-object-loves-you</id>
+    <content type="html"><![CDATA[<p>
+  Ruby&#8217;s Enumerable module is beautiful.  Coming from a more procedural
+  programming background, it can take some time to fully appreciate that beauty.
+  One pattern I see new Rubyists repeating relates to transforming data
+  structures.  This is an easy problem for a proceduralist:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">new_item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span>
+</span><span class='line'>    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">new_item</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">array</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  This works, but it&#8217;s not beautiful.  It&#8217;s even worse if the proceduralist
+  loops over the data to transform.  Once the proceduralist embraces Ruby, and
+  studies the Enumerable module, they learn of the #each_with_object method.
+  This method allows us to simplify our code:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  Enumerable#each_with_object allows us to declare the new data structure as a
+  parameter, reference it in our block, and then returns it for us; all in one
+  method call.  For simple operations, this can often be a one-liner:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span> <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  This is beautiful.  Any time you find yourself instantiating a
+  new data structure and then filling it, consider using #each_with_object.
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fixed-Height Carousel for Twitter Bootstrap]]></title>

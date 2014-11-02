@@ -1,0 +1,55 @@
+---
+layout: post
+title: "Enumerable's #each_with_object Loves You"
+date: 2014-11-01 21:46:20 -0700
+comments: true
+categories: [Ruby, Enumerable]
+---
+
+%p
+  Ruby's Enumerable module is beautiful.  Coming from a more procedural
+  programming background, it can take some time to fully appreciate that beauty.
+  One pattern I see new Rubyists repeating relates to transforming data
+  structures.  This is an easy problem for a proceduralist:
+
+{% codeblock lang:ruby %}
+def some_method(collection)
+  array = []
+
+  collection.each do |item|
+    new_item = item.do_something
+    array << new_item
+  end
+
+  array
+end
+{% endcodeblock %}
+
+%p
+  This works, but it's not beautiful.  It's even worse if the proceduralist
+  loops over the data to transform.  Once the proceduralist embraces Ruby, and
+  studies the Enumerable module, they learn of the #each_with_object method.
+  This method allows us to simplify our code:
+
+{% codeblock lang:ruby %}
+def some_method(collection)
+  collection.each_with_object([]) do |item, array|
+    array << item.do_something
+  end
+end
+{% endcodeblock %}
+
+%p
+  Enumerable#each_with_object allows us to declare the new data structure as a
+  parameter, reference it in our block, and then returns it for us; all in one
+  method call.  For simple operations, this can often be a one-liner:
+
+{% codeblock lang:ruby %}
+def some_method(collection)
+  collection.each_with_object([]) { |item, array| array << item.do_something }
+end
+{% endcodeblock %}
+
+%p
+  This is beautiful.  Any time you find yourself instantiating a
+  new data structure and then filling it, consider using #each_with_object.
