@@ -4,4 +4,6 @@ $('document').ready(function() {
   $('.codeschool-badge').tooltip({placement: "top"});
   updateBadgeImgSrc();
   animateBadgeShading();
+
+  toggleNavTabs();
 });

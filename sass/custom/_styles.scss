@@ -27,12 +27,21 @@ footer[role=contentinfo] {
 
 /* ------------------------------------------ */
 
+body {
+  position: relative;
+}
+
 nav {
   ul.dropdown-menu {
     a {
       color: rgb(45,117,166);
       i { padding: 0 10px 0 0; }
     }
+  }
+
+  ul.nav-pills {
+    /* margin-left: 10px;
+    padding-left: 10px; */
   }
 }
 
@@ -41,7 +50,8 @@ h1, h2, h3 {
 }
 
 section {
-  padding-top: 20px;
+  padding-top: 60px;
+  margin-top: -40px;
 
   .section-header {
     .circle {

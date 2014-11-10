@@ -2,49 +2,49 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://ryanringler.com/blog/2014/03/08/hello-world-dot-rb/</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>
             http://ryanringler.com/blog/2014/06/23/activerecord-decimal-datatype-and-its-options/
         </loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/blog/2014/07/20/generating-rails-secret-keys/</loc>
-        <lastmod>2014-08-24T20:54:04-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>
             http://ryanringler.com/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap/
         </loc>
-        <lastmod>2014-08-24T23:53:36-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>
             http://ryanringler.com/blog/2014/11/01/enumerables-number-each-with-object-loves-you/
         </loc>
-        <lastmod>2014-11-01T22:31:06-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/about.html</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/components.html</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/css.html</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/customize.html</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/getting-started.html</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/</loc>
@@ -52,23 +52,23 @@
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/javascript.html</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/assets/bootstrap/docs/migration.html</loc>
-        <lastmod>2014-08-01T18:35:05-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/blog/archives/</loc>
-        <lastmod>2014-11-01T22:31:06-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/blog/</loc>
-        <lastmod>2014-11-01T22:31:06-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/</loc>
-        <lastmod>2014-11-01T22:31:06-07:00</lastmod>
+        <lastmod>2014-11-09T23:45:01-08:00</lastmod>
     </url>
     <url>
         <loc>http://ryanringler.com/robots.txt</loc>

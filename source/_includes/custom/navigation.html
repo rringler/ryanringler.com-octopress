@@ -1,72 +1,92 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ root_url }}/">{{ site.title }}</a>
-    </div>
+    <div class="row">
+      <div class="col-md-2 col-sm-2">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ root_url }}/">{{ site.title }}</a>
+        </div>
+      </div>
 
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav"></ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            Contact me <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="mailto:jobs@ryanringler.com">
-                <i class="fa fa-envelope-o"></i>email: jobs@ryanringler.com
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/rringler">
-                <i class="fa fa-github"></i> github: rringler
-              </a>
-            </li>
-            <li>
-              <a href="http://www.linkedin.com/in/rringler">
-                <i class="fa fa-linkedin"></i> linked in: rringler
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li {% if page.navbar == 'Blog' %}class="active"{% endif %}>
-          <a href="{{ root_url }}/blog">Blog</a>
-        </li>
-        {% if page.navbar == 'Blog' or page.navbar == 'Archives' %}
-          <li {% if page.navbar == 'Archives' %}class="active"{% endif %}>
-            <a href="{{ root_url }}/blog/archives">Archives</a>
-          </li>
-          {% if site.simple_search %}
-            <li>
-              <form class="search navbar-form navbar-right" action="{{ site.simple_search }}" method="GET">
-                <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}">
-                <div class="form-group">
-                  <input class="form-control" type="text" name="q" placeholder="Search">
-                </div>
-              </form>
-            </li>
+      <div class="navbar-collapse collapse">
+        <div id="nav-tabs" class="col-md-6 col-sm-2">
+          {% if page.name == "root" %}
+            <ul class="nav navbar-nav nav-pills" role="tablist">
+              <li role="presentation"><a href="#summary">Summary</a></li>
+              <li role="presentation"><a href="#skills">Skills</a></li>
+              <li role="presentation"><a href="#projects">Projects</a></li>
+              <li role="presentation"><a href="#education">Education</a></li>
+              <li role="presentation"><a href="#experience">Experience</a></li>
+            </ul>
           {% endif %}
-          <li>
-            <a class="subscribe-rss" href="{{ site.subscribe_rss }}" title="subscribe via RSS">
-              <span class="visible-xs">RSS</span>
-              <img class="hidden-xs" src="{{ root_url }}/images/rss.png" alt="RSS">
-            </a>
-          </li>
-          {% if site.subscribe_email %}
-            <li>
-              <a class="subscribe-email" href="{{ site.subscribe_email }}" title="subscribe via email">
-                <span class="visible-xs">Email</span>
-                <img class="hidden-xs" src="{{ root_url }}/images/email.png" alt="Email">
-              </a>
-            </li>
-          {% endif %}
+        </div>
+        {% if page.name == "root" %}
+          <div id="nav-right" class="col-md-4 col-sm-4">
+        {% else %}
+          <div id="nav-right" class="col-md-10 col-sm-8">
         {% endif %}
-      </ul>
+          <ul class="nav navbar-nav pull-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Contact me <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="mailto:jobs@ryanringler.com">
+                  <i class="fa fa-envelope-o"></i>email: jobs@ryanringler.com
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/rringler">
+                  <i class="fa fa-github"></i> github: rringler
+                </a>
+              </li>
+              <li>
+                <a href="http://www.linkedin.com/in/rringler">
+                  <i class="fa fa-linkedin"></i> linked in: rringler
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li {% if page.navbar == 'Blog' %}class="active"{% endif %}>
+            <a href="{{ root_url }}/blog">Blog</a>
+          </li>
+          {% if page.navbar == 'Blog' or page.navbar == 'Archives' %}
+            <li {% if page.navbar == 'Archives' %}class="active"{% endif %}>
+              <a href="{{ root_url }}/blog/archives">Archives</a>
+            </li>
+            {% if site.simple_search %}
+              <li>
+                <form class="search navbar-form navbar-right" action="{{ site.simple_search }}" method="GET">
+                  <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}">
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="q" placeholder="Search">
+                  </div>
+                </form>
+              </li>
+            {% endif %}
+            <li>
+              <a class="subscribe-rss" href="{{ site.subscribe_rss }}" title="subscribe via RSS">
+                <span class="visible-xs">RSS</span>
+                <img class="hidden-xs" src="{{ root_url }}/images/rss.png" alt="RSS">
+              </a>
+            </li>
+            {% if site.subscribe_email %}
+              <li>
+                <a class="subscribe-email" href="{{ site.subscribe_email }}" title="subscribe via email">
+                  <span class="visible-xs">Email</span>
+                  <img class="hidden-xs" src="{{ root_url }}/images/email.png" alt="Email">
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
