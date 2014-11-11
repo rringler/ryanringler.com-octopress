@@ -1,7 +1,7 @@
 function bootstrapCarouselNormalization() {
   var items   = $('#carousel-github-projects .item'), // grab all slides
       heights = [],                                   // array to store heights
-      tallest;                                        // tallest slide
+      tallest = 0;                                    // tallest slide
 
   if (items.length) {
     function normalizeHeights() {

@@ -1,9 +1,6 @@
-$('document').ready(function() {
-  bootstrapCarouselNormalization();
-
+window.onload = function() {
   $('.codeschool-badge').tooltip({placement: "top"});
+  bootstrapCarouselNormalization();
   updateBadgeImgSrc();
   animateBadgeShading();
-
-  toggleNavTabs();
-});
+}

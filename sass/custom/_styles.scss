@@ -39,11 +39,12 @@ nav {
     }
   }
 
-  ul.nav-pills {
-    /* margin-left: 10px;
-    padding-left: 10px; */
+  @media screen and (max-width: 1024px) {
+    ul.nav-pills { display: none !important; }
   }
 }
+
+
 
 h1, h2, h3 {
   text-shadow: 1px 1px 1px #ccc;
