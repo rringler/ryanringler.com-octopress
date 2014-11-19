@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Ryan&nbsp;Ringler.com]]></title>
   <link href="http://ryanringler.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2014-11-17T22:27:05-08:00</updated>
+  <updated>2014-11-18T21:57:14-08:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -12,6 +12,109 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RVM, Ruby 1.9.3, and OSX 10.10]]></title>
+    <link href="http://ryanringler.com/blog/2014/11/18/rvm-ruby-and-osx/"/>
+    <updated>2014-11-18T20:58:57-08:00</updated>
+    <id>http://ryanringler.com/blog/2014/11/18/rvm-ruby-and-osx</id>
+    <content type="html"><![CDATA[<p>%p
+  Ugg.  For the past four or five days, I&rsquo;ve been struggling to get all my gems
+  installed for a Ruby 1.9.3 project I&rsquo;ve been helping on (which is annoying
+  because everything was working fine the last time I worked on it.)  I use RVM
+  to manage my ruby versions, and for the longest time I&rsquo;ve let it manage its
+  dependencies by itself.  RVM seems to prefer using Homebrew&rsquo;s gcc compiler,
+  which has never been a problem in the past, but seems to be having some
+  difficulty finding source files in OSX 10.10.  I don&rsquo;t know if the files got
+  moved in the 10.10 update, but I do know it&rsquo;s causing me some headaches.</p>
+
+<p>%p
+  Running:</p>
+
+<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> bundle update
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>%p
+  was giving me a build error:</p>
+
+<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  Fetching gem metadata from &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://rubygems.org/........&quot;</span>&gt;https://rubygems.org/........&lt;/a&gt;
+</span><span class='line'>  Fetching additional metadata from &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://rubygems.org/..&quot;</span>&gt;https://rubygems.org/..&lt;/a&gt;
+</span><span class='line'>  Resolving dependencies&amp;hellip;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;  Gem::Ext::BuildError: ERROR: Failed to build gem native extension.&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;  /Users/rringler/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20141118-1331-708ezv.rb extconf.rb
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;  checking <span class="k">for </span>dns_sd.h&amp;hellip; no
+</span><span class='line'>  unable to find dnssd header
+</span><span class='line'>  &lt;strong&gt;&lt;em&gt; extconf.rb failed &lt;/em&gt;&lt;/strong&gt;
+</span><span class='line'>  Could not create Makefile due to some reason, probably lack of
+</span><span class='line'>  necessary libraries and/or headers.  Check the mkmf.log file <span class="k">for </span>more
+</span><span class='line'>  details.  You may need configuration options.&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>%p
+  Inspecting the mkmf.log, I see that ruby/rvm is trying to use the homebrew&rsquo;s
+  gcc compiler (/usr/local/opt/apple-gcc42) to build the dnssd gem, and failing
+  to find the dns_sd.h headers.  I have no idea why Homebrew&rsquo;s gcc can&rsquo;t find
+  it, but I do seem to have a solution: reinstall Ruby 1.9.3 using Xcode&rsquo;s gcc
+  compiler.</p>
+
+<p>%p
+  After uninstalling the existing Ruby 1.9.3</p>
+
+<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> rvm uninstall ruby-1.9.3-p551
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>%p
+  I made sure I had the latest version of Xcode, and Xcode Command Line Tools
+  installed.  I opened Xcode&rsquo;s preferences, and verified that it listed &ldquo;Xcode
+  6.1 (6A1052d)&rdquo; in the Command Line Tools section (under the Locations tab.)
+  Finally, I reinstalled ruby instructing RVM to use Xcode&rsquo;s clang-based gcc
+  compiler:</p>
+
+<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> rvm install 1.9.3 &amp;mdash;with-gcc<span class="o">=</span>clang
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>%p
+  and everything seems to work again; the dnssd gem now builds correctly.</p>
+
+<p>%p
+  Apparently earlier versions of Ruby 1.9.3 had issues with clang/llvm-based
+  compilers, so this solution may not help if you&rsquo;re trying to
+  install something earlier than ruby-1.9.3-p125, but if you just want the
+  latest 1.9.3 (p551) and are having difficulty, give this a shot.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Enumerable's #each_with_object Loves You]]></title>

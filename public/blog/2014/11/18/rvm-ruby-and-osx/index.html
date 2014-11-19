@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Enumerable's #each_with_object Loves You - Ryan&nbsp;Ringler.com</title>
+  <title>RVM, Ruby 1.9.3, and OSX 10.10 - Ryan&nbsp;Ringler.com</title>
   <meta name="author" content="Ryan Ringler">
 
   
@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ryanringler.com/blog/2014/11/01/enumerables-number-each-with-object-loves-you">
+  <link rel="canonical" href="http://ryanringler.com/blog/2014/11/18/rvm-ruby-and-osx">
   <link href="/favicon.ico" type="image/x-icon" rel="icon">
   <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
   <link href="/atom.xml" rel="alternate" title="Ryan&nbsp;Ringler.com" type="application/atom+xml">
@@ -137,13 +137,13 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-11-01T21:46:20-07:00" pubdate data-updated="true">Nov 1<span>st</span>, 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-11-18T20:58:57-08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2014</time>
         
       </p>
     
     
     <h1 class="entry-title">
-        Enumerable's #each_with_object Loves You
+        RVM, Ruby 1.9.3, and OSX 10.10
         
     </h1>
     
@@ -151,12 +151,27 @@
 
 
 <div class="entry-content clearfix"><p>
-  Ruby&#8217;s Enumerable module is beautiful.  Coming from a more procedural
-  programming background, it can take some time to fully appreciate that beauty.
-  One pattern I see new Rubyists repeating relates to transforming data
-  structures.  This is an easy problem for a proceduralist:
+  Ugg.  For the past four or five days, I&#8217;ve been struggling to get all my gems
+  installed for a Ruby 1.9.3 project I&#8217;ve been helping on (which is annoying
+  because everything was working fine the last time I worked on it.)  I use RVM
+  to manage my ruby versions, and for the longest time I&#8217;ve let it manage its
+  dependencies by itself.  RVM seems to prefer using Homebrew&#8217;s gcc compiler,
+  which has never been a problem in the past, but seems to be having some
+  difficulty finding source files in OSX 10.10.  I don&#8217;t know if the files got
+  moved in the 10.10 update, but I do know it&#8217;s causing me some headaches.
 </p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>
+  Running:
+  <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</p>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> bundle update
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  was giving me a build error:
+  <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</p>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -166,49 +181,62 @@
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  Fetching gem metadata from https://rubygems.org/........
+</span><span class='line'>  Fetching additional metadata from https://rubygems.org/..
+</span><span class='line'>  Resolving dependencies...
 </span><span class='line'>
-</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
-</span><span class='line'>    <span class="n">new_item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span>
-</span><span class='line'>    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">new_item</span>
-</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
 </span><span class='line'>
-</span><span class='line'>  <span class="n">array</span>
-</span><span class='line'><span class="k">end</span>
+</span><span class='line'>      /Users/rringler/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20141118-1331-708ezv.rb extconf.rb
+</span><span class='line'>  checking <span class="k">for </span>dns_sd.h... no
+</span><span class='line'>  unable to find dnssd header
+</span><span class='line'>  *** extconf.rb failed ***
+</span><span class='line'>  Could not create Makefile due to some reason, probably lack of
+</span><span class='line'>  necessary libraries and/or headers.  Check the mkmf.log file <span class="k">for </span>more
+</span><span class='line'>  details.  You may need configuration options.
+</span><span class='line'>
+</span><span class='line'>
 </span></code></pre></td></tr></table></div></figure>
 <p>
-  This works, but it&#8217;s not beautiful.  It&#8217;s even worse if the proceduralist
-  loops over the data to transform.  Once the proceduralist embraces Ruby, and
-  studies the Enumerable module, they learn of the #each_with_object method.
-  This method allows us to simplify our code:
+  Inspecting the mkmf.log, I see that ruby/rvm is trying to use the homebrew&#8217;s
+  gcc compiler (/usr/local/opt/apple-gcc42) to build the dnssd gem, and failing
+  to find the dns_sd.h headers.  I have no idea why Homebrew&#8217;s gcc can&#8217;t find
+  it, but I do seem to have a solution: reinstall Ruby 1.9.3 using Xcode&#8217;s gcc
+  compiler.
 </p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span>
-</span><span class='line'>    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
 <p>
-  Enumerable#each_with_object allows us to declare the new data structure as a
-  parameter, reference it in our block, and then returns it for us; all in one
-  method call.  For simple operations, this can often be a one-liner:
+  After uninstalling the existing Ruby 1.9.3
+  <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span> <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span> <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> rvm uninstall ruby-1.9.3-p551
+</span><span class='line'>
 </span></code></pre></td></tr></table></div></figure>
 <p>
-  This is beautiful.  Any time you find yourself instantiating a
-  new data structure and then filling it, consider using #each_with_object.
+  I made sure I had the latest version of Xcode, and Xcode Command Line Tools
+  installed.  I opened Xcode&#8217;s preferences, and verified that it listed &#8220;Xcode
+  6.1 (6A1052d)&#8221; in the Command Line Tools section (under the Locations tab.)
+  Finally, I reinstalled ruby instructing RVM to use Xcode&#8217;s clang-based gcc
+  compiler:
+  <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</p>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> rvm install 1.9.3 --with-gcc<span class="o">=</span>clang
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+  and everything seems to work again; the dnssd gem now builds correctly.
+</p>
+<p>
+  Apparently earlier versions of Ruby 1.9.3 had issues with clang/llvm-based
+  compilers, so this solution may not help if you&#8217;re trying to
+  install something earlier than ruby-1.9.3-p125, but if you just want the
+  latest 1.9.3 (p551) and are having difficulty, give this a shot.
 </p>
 </div>
 
@@ -233,13 +261,13 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-11-01T21:46:20-07:00" pubdate data-updated="true">Nov 1<span>st</span>, 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-11-18T20:58:57-08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2014</time>
           
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blog/categories/enumerable/'>Enumerable</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+    <a class='category' href='/blog/categories/osx/'>OSX</a>, <a class='category' href='/blog/categories/rvm/'>RVM</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
   
 </span>
 
@@ -256,10 +284,8 @@
         
           <ul class="meta text-muted pager">
             
-            <li class="previous"><a href="/blog/2014/08/24/fixed-height-carousel-for-twitter-bootstrap/" title="Previous Post: Fixed-Height Carousel for Twitter Bootstrap">&laquo; Fixed-Height Carousel for Twitter Bootstrap</a></li>
+            <li class="previous"><a href="/blog/2014/11/01/enumerables-number-each-with-object-loves-you/" title="Previous Post: Enumerable's #each_with_object Loves You">&laquo; Enumerable's #each_with_object Loves You</a></li>
             
-            
-            <li class="next"><a href="/blog/2014/11/18/rvm-ruby-and-osx/" title="Next Post: RVM, Ruby 1.9.3, and OSX 10.10">RVM, Ruby 1.9.3, and OSX 10.10 &raquo;</a></li>
             
           </ul>
         

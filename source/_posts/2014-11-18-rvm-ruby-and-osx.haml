@@ -1,0 +1,78 @@
+---
+layout: post
+title: "RVM, Ruby 1.9.3, and OSX 10.10"
+date: 2014-11-18 20:58:57 -0800
+comments: true
+categories: [Ruby, RVM, OSX]
+---
+
+%p
+  Ugg.  For the past four or five days, I've been struggling to get all my gems
+  installed for a Ruby 1.9.3 project I've been helping on (which is annoying
+  because everything was working fine the last time I worked on it.)  I use RVM
+  to manage my ruby versions, and for the longest time I've let it manage its
+  dependencies by itself.  RVM seems to prefer using Homebrew's gcc compiler,
+  which has never been a problem in the past, but seems to be having some
+  difficulty finding source files in OSX 10.10.  I don't know if the files got
+  moved in the 10.10 update, but I do know it's causing me some headaches.
+
+%p
+  Running:
+
+  {% codeblock lang:bash %}
+  $> bundle update
+  {% endcodeblock %}
+
+%p
+  was giving me a build error:
+
+  {% codeblock lang:bash %}
+  Fetching gem metadata from https://rubygems.org/........
+  Fetching additional metadata from https://rubygems.org/..
+  Resolving dependencies...
+
+  Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+      /Users/rringler/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20141118-1331-708ezv.rb extconf.rb
+  checking for dns_sd.h... no
+  unable to find dnssd header
+  *** extconf.rb failed ***
+  Could not create Makefile due to some reason, probably lack of
+  necessary libraries and/or headers.  Check the mkmf.log file for more
+  details.  You may need configuration options.
+
+  {% endcodeblock %}
+
+%p
+  Inspecting the mkmf.log, I see that ruby/rvm is trying to use the homebrew's
+  gcc compiler (/usr/local/opt/apple-gcc42) to build the dnssd gem, and failing
+  to find the dns_sd.h headers.  I have no idea why Homebrew's gcc can't find
+  it, but I do seem to have a solution: reinstall Ruby 1.9.3 using Xcode's gcc
+  compiler.
+
+%p
+  After uninstalling the existing Ruby 1.9.3
+
+  {% codeblock lang:bash %}
+  $> rvm uninstall ruby-1.9.3-p551
+  {% endcodeblock %}
+
+%p
+  I made sure I had the latest version of Xcode, and Xcode Command Line Tools
+  installed.  I opened Xcode's preferences, and verified that it listed "Xcode
+  6.1 (6A1052d)" in the Command Line Tools section (under the Locations tab.)
+  Finally, I reinstalled ruby instructing RVM to use Xcode's clang-based gcc
+  compiler:
+
+  {% codeblock lang:bash %}
+  $> rvm install 1.9.3 --with-gcc=clang
+  {% endcodeblock %}
+
+%p
+  and everything seems to work again; the dnssd gem now builds correctly.
+
+%p
+  Apparently earlier versions of Ruby 1.9.3 had issues with clang/llvm-based
+  compilers, so this solution may not help if you're trying to
+  install something earlier than ruby-1.9.3-p125, but if you just want the
+  latest 1.9.3 (p551) and are having difficulty, give this a shot.
