@@ -62,12 +62,15 @@ function carouselNormalization() {
 {% endcodeblock %}
 
 %p
-  Call that in a document.ready block:
+  %strike
+    Call that in a document.ready block:
+%p
+  [<strong>Edit:</strong> Calling this on window.onload will wait until all the assets have been loaded so a maximum height can be calculated correctly.]
 
 {% codeblock lang:javascript %}
-$('document').ready(function() {
+window.onload = function() {
   carouselNormalization();
-});
+}
 {% endcodeblock %}
 
 %p
