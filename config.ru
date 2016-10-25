@@ -1,6 +1,8 @@
 require 'bundler/setup'
 require 'sinatra/base'
 
+use Rack::Deflater
+
 # The project root directory
 $root = ::File.dirname(__FILE__)
 
