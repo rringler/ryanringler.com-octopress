@@ -92,6 +92,16 @@ section {
     i { margin: 16px 0 0 -1px; }
     .position, .position-highlights { padding-left: 20px; }
     img#shuddle_github_contributions { width: 75%; height: 75%; padding-left: 26px; }
+    span#ruby {
+      color: #981A21;
+
+      img {
+        height: 15px;
+        width: 15px;
+        position: relative;
+        top: -2px;
+      }
+    }
   }
 
   &#skills {
@@ -102,6 +112,8 @@ section {
       color: #981A21;
 
       img {
+        height: 15px;
+        width: 15px;
         position: relative;
         top: -2px;
       }
