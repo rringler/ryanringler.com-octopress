@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: JavaScript | Ryan&nbsp;Ringler.com]]></title>
+  <title><![CDATA[Category: JavaScript | Ryan Ringler]]></title>
   <link href="http://ryanringler.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2017-09-04T15:28:54-07:00</updated>
+  <updated>2017-11-26T11:27:58-08:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -72,24 +72,18 @@
 <span class='line-number'>31</span>
 <span class='line-number'>32</span>
 <span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">carouselNormalization</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">items</span>   <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">#</span><span class="nx">carousel</span><span class="o">-</span><span class="nx">id</span> <span class="p">.</span><span class="nx">item</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;),</span>              <span class="c1">// grab all the slides&lt;/p&gt;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">items</span>   <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">#</span><span class="nx">carousel</span><span class="o">-</span><span class="nx">id</span> <span class="p">.</span><span class="nx">item</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;),</span>              <span class="c1">// grab all the slides</span>
+</span><span class='line'>      <span class="nx">heights</span> <span class="o">=</span> <span class="p">[],</span>                                   <span class="c1">// array to store heights</span>
+</span><span class='line'>      <span class="nx">tallest</span><span class="p">;</span>                                        <span class="c1">// tallest slide&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nx">heights</span> <span class="o">=</span> <span class="p">[],</span>                                   <span class="c1">// array to store heights</span>
-</span><span class='line'>  <span class="nx">tallest</span><span class="p">;</span>                                        <span class="c1">// tallest slide</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="k">if</span> <span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">function</span> <span class="nx">normalizeHeights</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">items</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">heights</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">height</span><span class="p">());</span>               <span class="c1">// add each slide&amp;rsquo;s height</span>
+</span><span class='line'>      <span class="p">});</span>                                             <span class="c1">// to the array&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="k">if</span> <span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">normalizeHeights</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">items</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">heights</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">height</span><span class="p">());</span>               <span class="c1">// add each slide&#39;s height</span>
-</span><span class='line'>  <span class="p">});</span>                                             <span class="c1">// to the array</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">tallest</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">heights</span><span class="p">);</span>        <span class="c1">// find the largest height</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nx">tallest</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">heights</span><span class="p">);</span>        <span class="c1">// find the largest height</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="nx">items</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;min-height&#39;</span><span class="p">,</span> <span class="nx">tallest</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>    <span class="c1">// set each slide&#39;s minimum</span>
@@ -114,12 +108,9 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>%p
-  %strike</p>
-
-<pre><code>Call that in a document.ready block:
-</code></pre>
-
-<p>%p
+  %strike
+    Call that in a document.ready block:
+%p
   [<strong>Edit:</strong> Calling this on window.onload will wait until all the assets have been loaded so a maximum height can be calculated correctly.]</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

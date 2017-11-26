@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Ryan&nbsp;Ringler.com]]></title>
+  <title><![CDATA[Ryan Ringler]]></title>
   <link href="http://ryanringler.com/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2017-09-04T15:28:54-07:00</updated>
+  <updated>2017-11-26T11:27:58-08:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>

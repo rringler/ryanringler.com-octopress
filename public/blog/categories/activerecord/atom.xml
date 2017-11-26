@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ActiveRecord | Ryan&nbsp;Ringler.com]]></title>
+  <title><![CDATA[Category: ActiveRecord | Ryan Ringler]]></title>
   <link href="http://ryanringler.com/blog/categories/activerecord/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2017-09-04T15:28:54-07:00</updated>
+  <updated>2017-11-26T11:28:04-08:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -28,42 +28,24 @@
   while scale is the number of digits to the right of the decimal place.  Thus,
   the following migration:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateNumbersTable</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">up</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;create_table :numbers do |t|</span>
-</span><span class='line'><span class="sr">  t.decimal :decimal_number, precision: 6, scale: 2</span>
-</span><span class='line'><span class="sr">end</span>
-</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;  end&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">def</span> <span class="nf">down</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:ruby %}
+class CreateNumbersTable &lt; ActiveRecord::Migration
+  def up
+    create_table :numbers do |t|
+      t.decimal :decimal_number, precision: 6, scale: 2
+    end
+  end</p>
+
+<p>  def down
+  end
+end
+{% endcodeblock %}</p>
 
 <p>%p
   creates a numbers table with a
-  %strong</p>
-
-<pre><code>decimal_number
-</code></pre>
-
-<p>  column that will accept data in a X,XXX.XX format.  Try to insert a number
+  %strong
+    decimal_number
+  column that will accept data in a X,XXX.XX format.  Try to insert a number
   with more digits (say, 10,000.00) and it will give you an out-of-range error
   (as I wrestled with last night.)</p>
 

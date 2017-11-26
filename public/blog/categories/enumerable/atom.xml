@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Enumerable | Ryan&nbsp;Ringler.com]]></title>
+  <title><![CDATA[Category: Enumerable | Ryan Ringler]]></title>
   <link href="http://ryanringler.com/blog/categories/enumerable/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2017-09-04T15:28:54-07:00</updated>
+  <updated>2017-11-26T11:28:04-08:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -24,33 +24,18 @@
   One pattern I see new Rubyists repeating relates to transforming data
   structures.  This is an easy problem for a proceduralist:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">array</span> <span class="o">=</span> <span class="o">[]&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;  collection.each do |item|&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">new_item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span>
-</span><span class='line'><span class="n">array</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">new_item</span>
-</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">end</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;  array</span>
-</span><span class='line'><span class="sr">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:ruby %}
+def some_method(collection)
+  array = []</p>
+
+<p>  collection.each do |item|
+    new_item = item.do_something
+    array &lt;&lt; new_item
+  end</p>
+
+<p>  array
+end
+{% endcodeblock %}</p>
 
 <p>%p
   This works, but it&rsquo;s not beautiful.  It&rsquo;s even worse if the proceduralist
@@ -58,36 +43,24 @@
   studies the Enumerable module, they learn of the #each_with_object method.
   This method allows us to simplify our code:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;array &amp;lt;&amp;lt; item.do_something</span>
-</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;  end</span>
-</span><span class='line'><span class="sr">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:ruby %}
+def some_method(collection)
+  collection.each_with_object([]) do |item, array|
+    array &lt;&lt; item.do_something
+  end
+end
+{% endcodeblock %}</p>
 
 <p>%p
   Enumerable#each_with_object allows us to declare the new data structure as a
   parameter, reference it in our block, and then returns it for us; all in one
   method call.  For simple operations, this can often be a one-liner:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">collection</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span> <span class="n">array</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">item</span><span class="o">.</span><span class="n">do_something</span> <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:ruby %}
+def some_method(collection)
+  collection.each_with_object([]) { |item, array| array &lt;&lt; item.do_something }
+end
+{% endcodeblock %}</p>
 
 <p>%p
   This is beautiful.  Any time you find yourself instantiating a

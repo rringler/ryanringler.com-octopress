@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Rake | Ryan&nbsp;Ringler.com]]></title>
+  <title><![CDATA[Category: Rake | Ryan Ringler]]></title>
   <link href="http://ryanringler.com/blog/categories/rake/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2017-09-04T15:28:54-07:00</updated>
+  <updated>2017-11-26T11:28:04-08:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -25,11 +25,10 @@
   Rails still has your back.  There&rsquo;s a very simple rake task to generate a
   new secret key:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rake secret
-</span><span class='line'>d781e04897092465&amp;hellip;
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+$ rake secret
+d781e04897092465&hellip;
+{% endcodeblock %}</p>
 
 <p>%p
   and you&rsquo;ll get a new, secure 64-character random key.  Try not to check this

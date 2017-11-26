@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: RVM | Ryan&nbsp;Ringler.com]]></title>
+  <title><![CDATA[Category: RVM | Ryan Ringler]]></title>
   <link href="http://ryanringler.com/blog/categories/rvm/atom.xml" rel="self"/>
   <link href="http://ryanringler.com/"/>
-  <updated>2017-09-04T15:28:54-07:00</updated>
+  <updated>2017-11-26T11:28:04-08:00</updated>
   <id>http://ryanringler.com/</id>
   <author>
     <name><![CDATA[Ryan Ringler]]></name>
@@ -31,50 +31,31 @@
 <p>%p
   Running:</p>
 
-<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> bundle update
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>  {% codeblock lang:bash %}
+  $> bundle update
+  {% endcodeblock %}</p>
 
 <p>%p
   was giving me a build error:</p>
 
-<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  Fetching gem metadata from &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://rubygems.org/........&quot;</span>&gt;https://rubygems.org/........&lt;/a&gt;
-</span><span class='line'>  Fetching additional metadata from &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://rubygems.org/..&quot;</span>&gt;https://rubygems.org/..&lt;/a&gt;
-</span><span class='line'>  Resolving dependencies&amp;hellip;&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;  Gem::Ext::BuildError: ERROR: Failed to build gem native extension.&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;pre&gt;&lt;code&gt;  /Users/rringler/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20141118-1331-708ezv.rb extconf.rb
-</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;  checking <span class="k">for </span>dns_sd.h&amp;hellip; no
-</span><span class='line'>  unable to find dnssd header
-</span><span class='line'>  &lt;strong&gt;&lt;em&gt; extconf.rb failed &lt;/em&gt;&lt;/strong&gt;
-</span><span class='line'>  Could not create Makefile due to some reason, probably lack of
-</span><span class='line'>  necessary libraries and/or headers.  Check the mkmf.log file <span class="k">for </span>more
-</span><span class='line'>  details.  You may need configuration options.&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>  {% codeblock lang:bash %}
+  Fetching gem metadata from <a href="https://rubygems.org/........">https://rubygems.org/........</a>
+  Fetching additional metadata from <a href="https://rubygems.org/..">https://rubygems.org/..</a>
+  Resolving dependencies&hellip;</p>
+
+<p>  Gem::Ext::BuildError: ERROR: Failed to build gem native extension.</p>
+
+<pre><code>  /Users/rringler/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20141118-1331-708ezv.rb extconf.rb
+</code></pre>
+
+<p>  checking for dns_sd.h&hellip; no
+  unable to find dnssd header
+  <strong><em> extconf.rb failed </em></strong>
+  Could not create Makefile due to some reason, probably lack of
+  necessary libraries and/or headers.  Check the mkmf.log file for more
+  details.  You may need configuration options.</p>
+
+<p>  {% endcodeblock %}</p>
 
 <p>%p
   Inspecting the mkmf.log, I see that ruby/rvm is trying to use the homebrew&rsquo;s
@@ -86,11 +67,9 @@
 <p>%p
   After uninstalling the existing Ruby 1.9.3</p>
 
-<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> rvm uninstall ruby-1.9.3-p551
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>  {% codeblock lang:bash %}
+  $> rvm uninstall ruby-1.9.3-p551
+  {% endcodeblock %}</p>
 
 <p>%p
   I made sure I had the latest version of Xcode, and Xcode Command Line Tools
@@ -99,11 +78,9 @@
   Finally, I reinstalled ruby instructing RVM to use Xcode&rsquo;s clang-based gcc
   compiler:</p>
 
-<p>  <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="nv">$&gt;</span> rvm install 1.9.3 &amp;mdash;with-gcc<span class="o">=</span>clang
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>  {% codeblock lang:bash %}
+  $> rvm install 1.9.3 &ndash;with-gcc=clang
+  {% endcodeblock %}</p>
 
 <p>%p
   and everything seems to work again; the dnssd gem now builds correctly.</p>
